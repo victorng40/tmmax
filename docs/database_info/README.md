@@ -56,6 +56,12 @@
 
     **COMMENTS: "Thin hafnia films of thicknesses from about 180 to 500 nm deposited on Si substrates using reactive magnetron sputtering."**
 
+- **ITO**
+
+    Minenkov, A., Hollweger, S., Duchoslav, J., Erdene-Ochir, O., Weise, M., Ermilova, E., ... & Schiek, M. (2024). Monitoring the electrochemical failure of indium tin oxide electrodes via operando ellipsometry complemented by electron microscopy and spectroscopy. ACS Applied Materials & Interfaces, 16(7), 9517-9531. [doi](https://doi.org/10.1021/acsami.3c17923)
+
+    **COMMENTS: "Numerical data kindly provided by Manuela Schiek"**
+
 - **Kischkat_Al2O3**
 
     J. Kischkat, S. Peters, B. Gruska, M. Semtsiv, M. Chashnikova, M. Klinkmüller, O. Fedosenko, S. Machulik, A. Aleksandrova, G. Monastyrskyi, Y. Flores, W. T. Masselink, Mid-infrared optical properties of thin films of aluminum oxide, titanium dioxide, silicon dioxide, aluminum nitride, and silicon nitride, Applied optics, 51. Jg., Nr. 28, 2012, S. 6789-6798. [doi](https://doi.org/10.1364/AO.51.006789)
