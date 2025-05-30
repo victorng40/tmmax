@@ -7,9 +7,6 @@ from tmmax.data import interpolate_nk, material_distribution_to_set, create_data
 
 from typing import List, Callable, Tuple, Union
 
-
-speed_of_light = 299792458 # m/s
-
 def get_nk_values(wl: float, nk_functions: List[Callable[[float], complex]], material_list: List[int]) -> np.ndarray:
     """
     This function retrieves the refractive index and extinction coefficient values 
@@ -144,7 +141,7 @@ def generate_vtmm_args(wavelength_arr: np.ndarray,
         The layer thicknesses, converted to TensorFlow tensors for further computations.
     """
 
-    global speed_of_light # Global variable representing the speed of light
+    speed_of_light = 299792458 # m/s
     
     # Create a unique set of materials from the input material list to avoid duplicates
     material_set = list(set(material_list))  # Convert material list to set for unique materials
