@@ -1,5 +1,5 @@
 ---
-title: 'tmmax: a high-performance JAX-based library for optical modeling of multilayer thin-film structures using the transfer matrix method'
+title: 'TMMax: A high-performance JAX-based library for optical modeling of multilayer thin-film structures using the transfer matrix method'
 
 tags:
   - Python
@@ -28,91 +28,30 @@ affiliations:
  - name: Physics Engineering Department, Faculty of Science and Letters, Istanbul Technical University, Istanbul, 34469, Turkey
    index: 2
 
-date: 2 June 2025
+date: 15 June 2025
 
 bibliography: paper.bib
 ---
 
 # Summary
 
-Differential absorption (DA) concerns the varying absorption of electromagnetic radiation by different substances, leading to distinctive spectral features used for identification or analysis. Transient absorption spectroscopy (TAS) is one such technique that optically probes short-lived excited states. 
+Optical multilayer thin films are fundamental components that enable the precise control of optical parameters, such as reflectance, transmittance, and phase shift, in the design of photonic systems. Rapid and accessible simulation of these structures holds critical importance for designing and analyzing complex coatings, including distributed Bragg reflectors, anti-reflection coatings, and spectral filters. While researchers commonly use the traditional transfer matrix method for designing these structures, its scalar treatment of incident light's wavelength and angle leads to redundant recalculations and inefficiencies in large-scale simulations. Furthermore, traditional method implementations do not support automatic differentiation, which limits their applicability in gradient-based inverse design approaches. Here, we present TMMax, a Python library that fully vectorizes and accelerates transfer matrix method using the high-performance machine learning library JAX. TMMax supports CPU, GPU, and TPU hardware, includes a publicly available material database, and offers comprehensive multilayer optical thin film analysis tools. Our approach, demonstrated through benchmarking, allows us to model thin film stacks with hundreds of layers within seconds. This illustrates that our method achieves a simulation speedup of x100s over a baseline NumPy implementation, providing a significant advantage in computational efficiency. Our method enables rapid and scalable simulations of large-scale and complex multilayer thin film structures, offering a substantial acceleration in the optical multilayer thin film design process. Thus, our method significantly speeds up photonics and optical engineering research.
 
-TAS is a powerful tool used to characterise the optical properties and time-evolution of electronically excited states in materials. This is achieved by comparing the differences in optical absorption spectra between the ground 'dark' state and a photo-excited 'light' state, with a variable time delay between the two measurements to incorporate the time evolution of the excited state [@porter:1997; @berera:2009]. \autoref{eq:tas_spectrum} shows how this can be calculated.
+# Statemement of need
 
-\begin{equation}\label{eq:tas_spectrum}
-  \Delta \alpha(\Delta t) =  \alpha_{light}(\Delta t) - \alpha_{dark}
-\end{equation}
-Here, $\alpha$ refers to the effective absorption of the material system at the specified light conditions. $\Delta t$ refers to the time-delay between initial photo-excitation and absorption measurement. 
 
-The approach is widely used to understand microscopic processes in photochemical and electrochemical transformations, including complex phenomena such as electron trapping and carrier recombination [@clarke:2010; @kafizas:2016], which dictate performance across many optoelectronic applications, such as solar cells [@kavanagh2021rapid], photocatalysts [@pastor2022electronic] and LEDs [@huang2021perovskite]. 
-The drawback of modern TAS is that the spectra are often difficult to interpret - especially for crystals, where specific valence and conduction band structures can give rise to complex features. As a result, experimental researchers are often bottlenecked by analysis and interpretation when testing for optical properties of materials using TAS. This is especially relevant when comparing between often-varying experimental setups.
 
-`PyTASER` is a Python package for simulating TAS spectra for crystalline materials from first-principles electronic structure calculations. This facilitates mapping from the electronic band structure of a material to changes in its optical properties upon excitation. The code allows input of local data from density functional theory (DFT) calculations, and is also interfaced with the Materials Project database [@materials_project] to allow rapid or high-throughput predictions based on the pre-computed electronic structures found there. This will not only assist experimentalists in comparing their data with theoretical estimates, but also encourage a wider understanding of complex materials and their associated optical properties. 
+# Code structure
 
-`PyTASER` identifies the allowed vertical optical transitions between the electronic bands of the material to determine the possible excitations that can occur in the respective ground 'dark' and excited 'light' stages. It does this by calculating the effective absorption for each state; a product of the joint density of states (JDOS) in the material and the transition probability for each band transition. These are based on post-processing of ground-state density functional theory calculations. Once calculated, `PyTASER` then compares the change in electronic transitions between the dark and light states. 
 
-![Schematics of the ground and excited state electronic structures and optical profiles. The ground 'dark' state is at the top, showing full occupancy and unoccupancy (blue, orange) for the conduction and valence bands respectively. The excited 'light' state shows partial occupancy in a similar plot at the bottom. The overall DA plot is displayed to the right, the difference between the dark and light effective absorption plots. \label{fig:figure1}](Fig1.pdf){width=100mm}
 
-## JDOS method
+# Benchmarks
 
-JDOS is defined as the density of allowed vertical band-to-band transitions based on the energy separation and occupancy of each band, formalised by the equation defined in \autoref{eq:jdos_dark}. This is straightforward to resolve for dark states in insulating crystals (at low temperatures), as the fully occupied valence bands and unoccupied conduction bands of such states lead to well-defined Fermi levels in the midgap. It has seen common use in packages such as [AbiPy](https://github.com/abinit/abipy) [@abipy] and [OptaDOS](https://github.com/optados-developers/optados) [@optados].
 
-\begin{equation}\label{eq:jdos_dark}
-  \rho(\varepsilon)=\frac{2}{8 \pi^3} \sum_v \sum_c \int \delta\left[\varepsilon_{c, \boldsymbol{k}}-\varepsilon_{v, \boldsymbol{k}}-\varepsilon\right] d^3 \boldsymbol{k}
-\end{equation}
-Here, $c$ and $v$ refer to the conduction and valence bands respectively. $\varepsilon$ refers to the energy of the respective band at kpoint $\boldsymbol{k}$.
 
-Determining the JDOS for the light state is more difficult, as the initial 'pump' excitation leads to partial occupancies in both the valence and conduction bands, which can contribute to additional optical transitions within these bands.
-`PyTASER` uses quasi-Fermi levels [@nelson2003physics; @dresselhaus2001solid] to address such band transitions, deviating from specific valence-to-conduction band transitions to favour initial-to-final band transitions (\autoref{eq:jdos_pytaser}). The partial occupancies ($f_{i,k}$ and $f_{f,k}$ in \autoref{eq:jdos_pytaser}) centred at these quasi-Fermi levels can be estimated by using the Fermi-Dirac distribution [@fermi1926sulla; @dirac1926theory] as the light excitation introduces excess charge carriers (holes and electrons) into the material.
-The use of Fermi-Dirac statistics introduces two variables; the effective temperature and concentration of free carriers in the material. The latter is related to the strength of the initial pump, as well as the pump-probe time delay. These can be used to understand the time-evolution of the excited state in the material.
+# Example of usage
 
-\begin{equation}
-\label{eq:jdos_pytaser}
-  \rho\left(\varepsilon, \varepsilon_{F, h}, \varepsilon_{F, e}, T\right) = \frac{2}{8 \pi^3} \sum_i \sum_{f>i} \int \delta\left[\varepsilon_{f, \boldsymbol{k}}-\varepsilon_{i, \boldsymbol{k}}-\varepsilon\right] f_{i, \boldsymbol{k}}\left(1-f_{f, \boldsymbol{k}}\right) d^3 \boldsymbol{k}
-\end{equation}
 
-Here, the subscripts $\varepsilon_{F, h}$ and $\varepsilon_{F, e}$  refer to the quasi-hole and quasi-electron Fermi levels, respectively. The subscripts $i$ and $f$ refer to the initial and final band states. The $f$ variable is the occupancy at the respective band at k-point $\boldsymbol{k}$.
-
-## Optics method
-
-`PyTASER` can also compute the optical transition probability from the frequency-dependent dielectric functions. The transition dipole moment, \autoref{eq:transition_probability}, is used to estimate the effective absorption strength for each band-to-band transition. 
-
-\begin{equation}
-\label{eq:transition_probability}
-  \lambda_{i,f}= \left[\left\langle \phi_{i} | \mu_{T} | \phi_{f} \right\rangle \right]^{2}
-\end{equation}
-
-This naturally takes into account dipole selection rules, for example, forbidden $g$ → $g$ transitions at the $\Gamma$ point in a centrosymmetric crystal. Spin selection rules are also enforced for open-shell materials. By directly comparing the 'no pump' and 'pump' optical absorption values, shown in \autoref{fig:figure1}, this approach can offer a more realistic, albeit more computationally expensive, TAS profile.
-
-## Differential absorption 
-
-Beyond TAS, we have also included a function to calculate a direct differential absorption spectrum (the difference between the ground-state optical absorption spectra of two systems), calculated using \autoref{eq:da}. 
-
-\begin{equation}
-\label{eq:da}
-  \Delta \alpha(\lambda) = \alpha_{final}(\lambda) - \alpha_{initial}(\lambda)
-\end{equation}
-
-Here, $\alpha_{final}$ could represent any change in the environment of the system such as de-lithiation in a battery or a transition state in a catalytic cycle. One caveat we emphasise is that the reliability of the predicted spectra depends on the quality of the underlying optical absorption spectra. There will certainly be cases where the inclusion of excitonic, thermal, and/or relativistic effects is necessary.
-
-# Statement of need
-
-`PyTASER` is a Python package for simulating spectral profiles of crystals in different temperature and time-delay conditions. This makes it a powerful tool to not only predict the transient optical response of new materials, but also to assign the origin of specific optical features. `PyTASER` is unique in providing detailed transient absorption spectra using pre-calculated DFT data, with the ability to account for complex optical processes such as stimulated emission, ground state bleaching, and photo-induced absorption [@berera:2009; @kafizas:2016]. 
-
-`PyTASER` is designed for users with moderate experience in computational methods and optical techniques, enabled by the following features:
-
-- Use of Python as the programming language due to its low entry barrier, flexibility and popularity in the materials modelling field.
-- Documentation and easy-to-follow workflows with unit-test coverage.
-- Ability to produce publication-ready figures, with flexibility in plotting.
-- Interfaced with the popular materials analysis package [`pymatgen`](https://pymatgen.org/) [@pymatgen]. 
-- Currently compatible with [VASP](https://www.vasp.at/wiki/index.php/The_VASP_Manual), the most popular electronic structure calculation code [@vasp]. Other codes can also be added with a small amount of coding effort. 
-
-A notable feature in `PyTASER` is the ability to decompose individual band transitions alongside the overall spectrum (\autoref{fig:figure2}). As a result, users can determine the band contributions to different spectral features. In experiments, this is a difficult process, requiring numerous stages of analysis and a deep understanding of the electronic structure of the material [@wang:2015; @kafizas:2016]. By identifying the key bands, this feature greatly simplifies the process of identifying atomistic origins of electronic states, which is important for identifying the decay kinetics of such states.
-In addition to the overall spectrum, `PyTASER` can plot individual contributions for the separate light and dark states, showcasing their respective contributing transitions. 
-
-![A 'decomposed' TAS spectrum for GaAs, calculated using data from the Materials Project. This plot indicates that the '-1,0' (orange) and '-2,-1' (pink) band transitions contribute most towards the TAS spectrum in the bandgap (blue, dashed) region, in these conditions. \label{fig:figure2}](Fig2.png){width=100mm}
-
-Furthermore,`PyTASER` is interfaced with the [Materials Project](https://next-gen.materialsproject.org/) database. This allows users to produce spectra for systems that they have not locally calculated and reduces the barrier for beginners to utilise the package (within the JDOS approximation). The code has been tested for a range of materials with differing electronic structures, using both locally calculated and Materials Project data. 
 
 # Acknowledgements
 
