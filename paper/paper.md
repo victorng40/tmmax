@@ -25,10 +25,10 @@ authors:
 affiliations:
  - name: Department of Electrical and Electronics Engineering, Koç University, Sariyer, Istanbul, 34450, Turkey
    index: 1
- - name: Physics Engineering Department, Faculty of Science and Letters, Istanbul Technical University, Istanbul, 34469, Turkey
+ - name: Physics Engineering Department, Istanbul Technical University, Istanbul, 34469, Turkey
    index: 2
 
-date: 15 June 2025
+date: 16 July 2025
 
 bibliography: paper.bib
 ---
@@ -39,22 +39,74 @@ Optical multilayer thin films are fundamental components that enable the precise
 
 # Statemement of need
 
+$$
+\mathbf{M} = \mathbf{I}_0 \cdot \left( \prod_{i=1}^{N-2} \mathbf{M}_i \right), \quad 
+\mathbf{M}_i = \mathbf{I}_i \mathbf{P}_i = 
+\begin{bmatrix}
+\alpha_{i, i+1} & \gamma_{i, i+1} \\
+\gamma_{i, i+1} & \alpha_{i, i+1}
+\end{bmatrix}
+\begin{bmatrix}
+e^{-j \delta_i} & 0 \\
+0 & e^{j \delta_i}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\alpha_{i, i+1} e^{-j \delta_i} & \gamma_{i, i+1} e^{j \delta_i} \\
+\gamma_{i, i+1} e^{-j \delta_i} & \alpha_{i, i+1} e^{j \delta_i}
+\end{bmatrix}
+\tag{1}
+$$
+
+$$
+\alpha_{i, i+1} =
+\begin{cases}
+\dfrac{n_i \cos\theta_i + n_{i+1} \cos\theta_{i+1}}{2 n_i \cos \theta_i} & \text{(s-pol.)} \\
+\dfrac{n_i \cos\theta_{i+1} + n_{i+1} \cos\theta_{i}}{2 n_i \cos \theta_i} & \text{(p-pol.)}
+\end{cases}, \quad
+\gamma_{i, i+1} =
+\begin{cases}
+\dfrac{n_i \cos\theta_i - n_{i+1} \cos\theta_{i+1}}{2 n_i \cos \theta_i} & \text{(s-pol.)} \\
+\dfrac{n_i \cos\theta_{i+1} - n_{i+1} \cos\theta_{i}}{2 n_i \cos \theta_i} & \text{(p-pol.)}
+\end{cases}
+\tag{2}
+$$
+
+$$
+\delta_i = \dfrac{2\pi}{\lambda} n_i d_i \cos \theta_i
+\tag{3}
+$$
+
+
+\begin{figure*}[t]
+\centering\includegraphics[width=\textwidth]{figure1.pdf}
+\caption{Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+\end{figure*}
 
 
 # Code structure
 
+\begin{figure*}[t]
+\centering\includegraphics[width=0.92\textwidth]{figure2.pdf}
+\caption{Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+\end{figure*}
 
 
 # Benchmarks
 
+\begin{figure*}[t]
+\centering\includegraphics[width=0.92\textwidth]{figure3.pdf}
+\caption{Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+\end{figure*}
 
-
-# Example of usage
-
+\begin{figure*}[t]
+\centering\includegraphics[width=0.92\textwidth]{figure4.pdf}
+\caption{Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+\end{figure*}
 
 
 # Acknowledgements
 
-The authors are grateful for feature suggestions and testing from Anahita Manchala, feedback from Liam Harnett-Caulfield, and advice from Artem Bakulin and James Durrant. This work received support from the Royal Society and the Leverhulme Trust. S.R.K. acknowledges the EPSRC Centre for Doctoral Training in the Advanced Characterisation of Materials (CDT-ACM) (EP/S023259/1) for funding a Ph.D. studentship. Via membership of the UK’s HEC Materials Chemistry Consortium, which is funded by the EPSRC (EP/L000202, EP/R029431, and EP/T022213), this work used the ARCHER2 UK National Supercomputing Service (www.archer2.ac.uk) and the UK Materials and Molecular Modelling (MMM) Hub (Young EP/T022213).
+This work was supported by the Scientific and Technological Research Council of Türkiye (TUBITAK) under the 2209-A Research Project Support Programme for Undergraduate Students, 2022 First-Term Call.
 
 # References
