@@ -40,7 +40,9 @@ Optical multilayer thin films are fundamental components that enable the precise
 # Statemement of need
 
 $$
-\mathbf{M} = \mathbf{I}_0 \cdot \left( \prod_{i=1}^{N-2} \mathbf{M}_i \right), \quad 
+\mathbf{M} = \mathbf{I}_0 \cdot \left( \prod_{i=1}^{N-2} \mathbf{M}_i \right)
+\tag{1}
+\newline
 \mathbf{M}_i = \mathbf{I}_i \mathbf{P}_i = 
 \begin{bmatrix}
 \alpha_{i, i+1} & \gamma_{i, i+1} \\
@@ -55,7 +57,6 @@ e^{-j \delta_i} & 0 \\
 \alpha_{i, i+1} e^{-j \delta_i} & \gamma_{i, i+1} e^{j \delta_i} \\
 \gamma_{i, i+1} e^{-j \delta_i} & \alpha_{i, i+1} e^{j \delta_i}
 \end{bmatrix}
-\tag{1}
 $$
 
 $$
