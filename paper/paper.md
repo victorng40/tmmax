@@ -40,9 +40,10 @@ Optical multilayer thin films are fundamental components that enable the precise
 # Statemement of need
 
 $$
-\mathbf{M} = \mathbf{I}_0 \cdot \left( \prod_{i=1}^{N-2} \mathbf{M}_i \right)
-\tag{1}
-\newline
+\mathbf{M} = \mathbf{I}_0 \cdot \left( \prod_{i=1}^{N-2} \mathbf{M}_i \right) \tag{1}
+$$
+
+$$
 \mathbf{M}_i = \mathbf{I}_i \mathbf{P}_i = 
 \begin{bmatrix}
 \alpha_{i, i+1} & \gamma_{i, i+1} \\
@@ -57,6 +58,7 @@ e^{-j \delta_i} & 0 \\
 \alpha_{i, i+1} e^{-j \delta_i} & \gamma_{i, i+1} e^{j \delta_i} \\
 \gamma_{i, i+1} e^{-j \delta_i} & \alpha_{i, i+1} e^{j \delta_i}
 \end{bmatrix}
+\tag{2}
 $$
 
 $$
@@ -64,18 +66,21 @@ $$
 \begin{cases}
 \dfrac{n_i \cos\theta_i + n_{i+1} \cos\theta_{i+1}}{2 n_i \cos \theta_i} & \text{(s-pol.)} \\
 \dfrac{n_i \cos\theta_{i+1} + n_{i+1} \cos\theta_{i}}{2 n_i \cos \theta_i} & \text{(p-pol.)}
-\end{cases}, \quad
+\end{cases}
+\tag{3}
+$$
+$$
 \gamma_{i, i+1} =
 \begin{cases}
 \dfrac{n_i \cos\theta_i - n_{i+1} \cos\theta_{i+1}}{2 n_i \cos \theta_i} & \text{(s-pol.)} \\
 \dfrac{n_i \cos\theta_{i+1} - n_{i+1} \cos\theta_{i}}{2 n_i \cos \theta_i} & \text{(p-pol.)}
 \end{cases}
-\tag{2}
+\tag{4}
 $$
 
 $$
 \delta_i = \dfrac{2\pi}{\lambda} n_i d_i \cos \theta_i
-\tag{3}
+\tag{5}
 $$
 
 
