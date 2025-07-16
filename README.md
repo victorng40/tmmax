@@ -168,12 +168,14 @@ As discussed, certain tmm implementations leverage GPU acceleration for enhanced
 Also if you find the `tmmax` library beneficial in your work, we kindly ask that you consider citing us.
 
 ```bibtex
-@software{tmmax,
-  author = {Bahrem Serhat Danis, Esra Zayim},
-  title = {tmmax: transfer matrix method with jax},
-  version = {1.0.0},
-  url = {https://github.com/bahremsd/tmmax},
-  year = {2025}
+@misc{danis2025tmmaxhighperformancemodelingmultilayer,
+      title={TMMax: High-performance modeling of multilayer thin-film structures using transfer matrix method with JAX}, 
+      author={Bahrem Serhat Danis and Esra Zayim},
+      year={2025},
+      eprint={2507.11341},
+      archivePrefix={arXiv},
+      primaryClass={physics.comp-ph},
+      url={https://arxiv.org/abs/2507.11341}, 
 }
 ```
 
