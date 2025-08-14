@@ -62,14 +62,14 @@ TMMax can be readily installed from the Python Package Index using `pip install 
 
 In multilayer thin-film simulations using TMM, runtime critically depends on the number of layers, wavelength array length, and angle of incidence array length, each substantially affecting computational load. To benchmark TMMax, we used Steven Byrnes’ Python tmm library (NumPy) as a baseline.
 
-\begin{figure*}[t]
+\begin{figure*}[ht]
 \centering\includegraphics[width=0.85\textwidth]{figure2.pdf}
 \caption{ Run time vs. layer count comparing tmm (orange) and TMMax (blue).}
 \end{figure*}
 
 To assess how layer count affects computational performance, we sampled 20 multilayer structures ranging from 2 to 400 layers, with each layer randomly assigned one of seven materials and thicknesses between 100–500 nm. Spectral and angular domains were fixed at 20 points each, spanning 500–1000 nm and 0–π/2 radians, respectively. Figure 2 shows that while tmm runtime grows rapidly, TMMax scales efficiently, remaining nearly constant (~1.0–1.2 s) for low-layer structures and achieving speedups from 18× (2 layers) to 700× (400 layers).
 
-\begin{figure*}[t]
+\begin{figure*}[ht]
 \centering\includegraphics[width=\textwidth]{figure3.pdf}
 \caption{ The colormaps show the runtime performance of tmm and TMMax across varying simulation grid sizes, comparing 8- and 80-layer stacks in (a) and (b), respectively.}  
 \end{figure*}
