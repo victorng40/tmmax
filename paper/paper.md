@@ -59,7 +59,7 @@ TMMax supports deep learning–based inverse design by keeping all computations 
 In multilayer thin-film simulations using TMM, runtime critically depends on the number of layers, wavelength array length, and angle of incidence array length, each substantially affecting computational load. To benchmark TMMax, we used Steven Byrnes’ Python tmm library (NumPy) as a baseline.
 
 \begin{figure*}[ht]
-\centering\includegraphics[width=0.65\textwidth]{figure2.pdf}
+\centering\includegraphics[width=0.5\textwidth]{figure2.pdf}
 \caption{ Run time vs. layer count comparing tmm (orange) and TMMax (blue).}
 \end{figure*}
 
