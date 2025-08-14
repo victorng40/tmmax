@@ -54,16 +54,12 @@ In traditional TMM implementations, the stack of layers in Figure 1a is simulate
 
 TMMax supports deep learning–based inverse design by keeping all computations on the GPU, avoiding costly CPU–GPU data transfers [@10.1117/1.OE.58.6.065103]. Whereas NumPy-based [@2020NumPy-Array] TMM packages that lack native gradients and require Autograd [@maclaurin2015autograd], TMMax natively computes gradients. Additionally, conventional TMM packages that focus on system matrices and offer limited, manually entered material data [@Luce:22; @leandro_acquaroli_2022_6479354], TMMax incorporates a curated database of 30 widely used materials, selected from Thin-Film Optical Filters [@macleod2010thin] and sourced from the verified refractiveindex.info database [@polyanskiy2024refractiveindex].
 
-# Installation
-
-TMMax can be readily installed from the Python Package Index using `pip install tmmax`, which automatically handles all dependencies.
-
 # Benchmarks
 
 In multilayer thin-film simulations using TMM, runtime critically depends on the number of layers, wavelength array length, and angle of incidence array length, each substantially affecting computational load. To benchmark TMMax, we used Steven Byrnes’ Python tmm library (NumPy) as a baseline.
 
 \begin{figure*}[ht]
-\centering\includegraphics[width=0.85\textwidth]{figure2.pdf}
+\centering\includegraphics[width=0.8\textwidth]{figure2.pdf}
 \caption{ Run time vs. layer count comparing tmm (orange) and TMMax (blue).}
 \end{figure*}
 
@@ -78,7 +74,9 @@ We benchmarked the effects of wavelength and incident angle array sizes by sampl
 
 We used Python’s timeit module to benchmark each simulation 50 times, averaging results to minimize transient effects and all comparisons run on a single Intel Core i9 core without GPU or multicore use to ensure fairness.
 
+# Installation
 
+TMMax can be readily installed from the Python Package Index using `pip install tmmax`, which automatically handles all dependencies.
 
 # Acknowledgements
 
