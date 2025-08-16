@@ -40,9 +40,9 @@ Benchmarking demonstrates that TMMax is capable of simulating thin-film stacks c
        padding: 6px;
        position: absolute;
        z-index: 1;
-       left: 105%; /* show to the right of cursor */
+       left: 110%; /* show to the right of cursor */
        top: 50%;
-       transform: translateY(-60%);
+       transform: translateY(-50%);
        opacity: 0;
        transition: opacity 0.3s;
    }
