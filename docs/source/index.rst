@@ -106,13 +106,14 @@ The current version is available as an **arXiv** preprint. A submission to the *
 
 Here is the recommended citation in BibTeX format:
 
-```bibtex
-@misc{danis2025tmmaxhighperformancemodelingmultilayer,
-      title={TMMax: High-performance modeling of multilayer thin-film structures using transfer matrix method with JAX}, 
-      author={Bahrem Serhat Danis and Esra Zayim},
-      year={2025},
-      eprint={2507.11341},
-      archivePrefix={arXiv},
-      primaryClass={physics.comp-ph},
-      url={https://arxiv.org/abs/2507.11341}, 
-}
+.. code-block:: latex
+
+   @misc{danis2025tmmaxhighperformancemodelingmultilayer,
+         title={TMMax: High-performance modeling of multilayer thin-film structures using transfer matrix method with JAX}, 
+         author={Bahrem Serhat Danis and Esra Zayim},
+         year={2025},
+         eprint={2507.11341},
+         archivePrefix={arXiv},
+         primaryClass={physics.comp-ph},
+         url={https://arxiv.org/abs/2507.11341}, 
+   }
