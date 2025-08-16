@@ -38,6 +38,8 @@ epub_show_urls = 'footnote'
 
 html_static_path = ["_static"]
 
+html_css_files = ["custom.css"]
+
 favicons = [
     {"rel": "icon", "sizes": "16x16", "href": "favicon_16_16.png"},
     {"rel": "icon", "sizes": "32x32", "href": "favicon_32_32.png"},
