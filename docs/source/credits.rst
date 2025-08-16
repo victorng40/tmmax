@@ -1,4 +1,4 @@
-Citations
+Credits
 =========
 
 If you use TMMax, please cite:
