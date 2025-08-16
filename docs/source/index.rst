@@ -42,7 +42,7 @@ Benchmarking demonstrates that TMMax is capable of simulating thin-film stacks c
        z-index: 1;
        left: 105%; /* show to the right of cursor */
        top: 50%;
-       transform: translateY(-50%);
+       transform: translateY(-60%);
        opacity: 0;
        transition: opacity 0.3s;
    }
@@ -83,7 +83,6 @@ Benchmarking demonstrates that TMMax is capable of simulating thin-film stacks c
    <div class="tooltip"><a href="faq.html">FAQ</a>
        <span class="tooltiptext">Frequently asked questions.</span>
    </div><br>
-
 
 .. toctree::
    :hidden:
