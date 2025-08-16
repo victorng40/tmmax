@@ -44,4 +44,6 @@ favicons = [
     {"rel": "apple-touch-icon", "sizes": "180x180", "href": "favicon_180_180.png"},
 ]
 
+html_title = "TMMax: transfer matrix method with jax"
+
 html_logo = "_static/logo_tmmax.png"
