@@ -1,4 +1,4 @@
-My Project
+TMMax: High-performance modeling of multilayer thin-film structures using transfer matrix method with JAX
 ==========
 
 Welcome to the documentation for TMMax.
