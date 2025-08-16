@@ -9,7 +9,7 @@
 
 Optical multilayer thin films are essential building blocks in modern photonic systems, enabling precise control over reflectance, transmittance, and phase response. **Fast** and **reliable** simulation of these structures is critical for the design and analysis of advanced coatings such as distributed Bragg reflectors, anti-reflection layers, and spectral filters.
 
-Traditional implementations of the transfer matrix method remain widely used for simulating these structures. However, their scalar treatment of wavelength and angle of incidence often leads to redundant recalculations, resulting in inefficiencies for large-scale simulations. In addition, conventional approaches lack native support for automatic differentiation, limiting their utility in gradient-based inverse design. To address these challenges, we introduce :tmmgreen:`**TMMax**`, a Python library that fully vectorizes and accelerates the transfer matrix method using the high-performance machine learning framework `JAX <https://docs.jax.dev/en/latest/index.html>`_. Designed as a versatile and extensible tool for thin-film optics research, :tmmgreen:`TMMax` integrates a suite of advanced numerical techniques and leverages just-in-time (JIT) compilation for optimal performance.
+Traditional implementations of the transfer matrix method remain widely used for simulating these structures. However, their scalar treatment of wavelength and angle of incidence often leads to redundant recalculations, resulting in inefficiencies for large-scale simulations. In addition, conventional approaches lack native support for automatic differentiation, limiting their utility in gradient-based inverse design. To address these challenges, we introduce :tmmgreen:`TMMax`, a Python library that fully vectorizes and accelerates the transfer matrix method using the high-performance machine learning framework `JAX <https://docs.jax.dev/en/latest/index.html>`_. Designed as a versatile and extensible tool for thin-film optics research, :tmmgreen:`TMMax` integrates a suite of advanced numerical techniques and leverages just-in-time (JIT) compilation for optimal performance.
 
 Originally developed with CPU-based execution to ensure broad accessibility, :tmmgreen:`TMMax` seamlessly scales to GPU and TPU platforms through JAX’s unified execution model. This ensures that users can benefit from both flexibility and computational efficiency, regardless of their available hardware.
 
@@ -101,7 +101,7 @@ Citing :tmmgreen:`TMMax`
 
 If you find the :tmmgreen:`TMMax` library useful in your work, we kindly ask that you consider citing it.  
 
-The current version is available as an `**arXiv** preprint <https://arxiv.org/abs/2507.11341>`_. A submission to the `**Journal of Open Source Software (JOSS)** <https://github.com/openjournals/joss-reviews/issues/8686#issuecomment-3141198678>`_ is currently under review, and we will update the reference once it is published.
+The current version is available as an **arXiv** preprint. A submission to the **Journal of Open Source Software (JOSS)** is currently under review, and we will update the reference once it is published.
 
 Here is the recommended citation in BibTeX format:
 
