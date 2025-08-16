@@ -11,6 +11,7 @@ Welcome to the documentation for TMMax.
    quickstart
    user_guide/index
    examples/index
+   tmmax_workshops/index
    contributing
    citations
    faq
