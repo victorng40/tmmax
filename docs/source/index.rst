@@ -106,7 +106,8 @@ The current version is available as an **arXiv** preprint. A submission to the *
 
 Here is the recommended citation in BibTeX format:
 
-.. code-block:: latex
+.. code-block:: none
+   :class: highlight-copy
 
    @misc{danis2025tmmaxhighperformancemodelingmultilayer,
          title={TMMax: High-performance modeling of multilayer thin-film structures using transfer matrix method with JAX}, 
