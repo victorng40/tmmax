@@ -2,12 +2,12 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'TMMax'
+copyright = '2025, Bahrem S. Danis'
+author = 'Bahrem S. Danis'
 
-release = '0.1'
-version = '0.1.0'
+release = '0.1.14'
+version = '0.1.14'
 
 # -- General configuration
 
@@ -17,6 +17,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
+    'sphinx_favicon',   
 ]
 
 intersphinx_mapping = {
@@ -33,3 +34,12 @@ html_theme = 'sphinx_rtd_theme'
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
+
+
+html_static_path = ["_static"]
+
+favicons = [
+    {"rel": "icon", "sizes": "16x16", "href": "favicon-16x16.png"},
+    {"rel": "icon", "sizes": "32x32", "href": "favicon-32x32.png"},
+    {"rel": "apple-touch-icon", "sizes": "180x180", "href": "apple-touch-icon.png"},
+]
