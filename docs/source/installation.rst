@@ -3,9 +3,9 @@
 Installation
 ============
 
-Before using :tmmgreen:`TMMax`, you need to install it on your system. This section provides detailed instructions for installing :tmmgreen:`TMMax` using two common approaches: via PyPI (recommended for simplicity) or by cloning the repository and installing locally (recommended for development or contributing).
+Before using :tmmgreen:`TMMax`, you need to install it on your system. This section provides detailed instructions for installing :tmmgreen:`TMMax` using two common approaches: via PyPI (**recommended for simplicity**) or by cloning the repository and installing locally (**recommended for development or contributing**).
 
-Installing via PyPI (Recommended)
+Installing via PyPI (**Recommended**)
 ---------------------------------
 
 The easiest way to install :tmmgreen:`TMMax` is through PyPI, the Python Package Index. This ensures that you get the latest stable release and all necessary dependencies automatically.
@@ -41,7 +41,8 @@ If you want to work on the TMMax source code, contribute, or use the latest deve
 
    cd tmmax
 
-3. (Optional but recommended) Create and activate a Python virtual environment:
+3. (Optional) Create and activate a Python virtual environment.  
+   If you do not already have a virtual environment, create one using the following command:
 
 .. code-block:: bash
 
@@ -68,4 +69,4 @@ Notes
 * The PyPI installation is ideal for general use, while local installation is more suitable for developers or users who need the latest updates.
 * Ensure that your Python version is compatible with :tmmgreen:`TMMax` (Python 3.10+ is recommended).
 
-Once installed, you can start exploring :tmmgreen:`TMMax` functionalities, from simulating multilayer thin films to performing high-performance optimizations using JAX.
+Once installed, you can start exploring :tmmgreen:`TMMax` functionalities.
