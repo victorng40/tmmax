@@ -7,16 +7,40 @@ TMMax: High-performance modeling of multilayer thin-film structures using transf
    :width: 100%
    :align: center
 
-**TMMax** is a high-performance Python library designed for the efficient simulation and analysis of optical properties in multilayer thin-film structures. Optical multilayer thin films are fundamental components in photonic systems, enabling precise control of reflectance, transmittance, and phase shift. These structures are widely used in applications such as distributed Bragg reflectors, anti-reflection coatings, spectral filters, and advanced photonic devices. Rapid and accessible simulation of these multilayer systems is therefore essential for designing and optimizing complex coatings.
+Optical multilayer thin films are essential building blocks in modern photonic systems, enabling precise control over reflectance, transmittance, and phase response. Fast and reliable simulation of these structures is critical for the design and analysis of advanced coatings such as distributed Bragg reflectors, anti-reflection layers, and spectral filters.
 
-TMMax addresses the limitations of traditional transfer matrix methods (TMM), which often rely on scalar calculations for each wavelength and angle of incidence, leading to redundant computations and inefficiencies in large-scale simulations. Moreover, conventional implementations generally lack support for automatic differentiation, restricting their usefulness in gradient-based inverse design and machine learning-assisted optimization.
+Traditional implementations of the transfer matrix method remain widely used for simulating these structures. However, their scalar treatment of wavelength and angle of incidence often leads to redundant recalculations, resulting in inefficiencies for large-scale simulations. In addition, conventional approaches lack native support for automatic differentiation, limiting their utility in gradient-based inverse design. To address these challenges, we introduce TMMax, a Python library that fully vectorizes and accelerates the transfer matrix method using the high-performance machine learning framework JAX. Designed as a versatile and extensible tool for thin-film optics research, TMMax integrates a suite of advanced numerical techniques and leverages just-in-time (JIT) compilation for optimal performance.
 
-At its core, TMMax fully vectorizes and accelerates the transfer matrix method using **JAX**, a high-performance machine learning library that enables just-in-time (JIT) compilation, vectorization, and XLA (Accelerated Linear Algebra) operations. By leveraging these capabilities, TMMax achieves exceptional computational speed, allowing users to simulate thin-film stacks with hundreds of layers in a matter of seconds. Benchmarks demonstrate that TMMax can achieve speedups of hundreds of times compared to baseline NumPy implementations, providing a significant advantage for large and complex simulations.
+Originally developed with CPU-based execution to ensure broad accessibility, TMMax seamlessly scales to GPU and TPU platforms through JAX’s unified execution model. This ensures that users can benefit from both flexibility and computational efficiency, regardless of their available hardware.
 
-Originally architected for CPU-based execution to ensure accessibility across diverse hardware configurations, TMMax seamlessly extends its efficiency to **GPU** and **TPU** platforms thanks to JAX’s unified execution model. This adaptability ensures high-performance simulations across a range of computing environments without modifying the core implementation. In addition, TMMax natively supports automatic differentiation through JAX’s autograd framework, enabling the computation of analytical gradients of optical properties with respect to arbitrary system parameters. This makes TMMax particularly well-suited for **inverse design, parameter optimization, and machine learning-assisted photonic engineering**, providing a direct pathway to next-generation thin-film design.
+TMMax also provides a curated material database with over 30 commonly used thin-film materials. Most refractive index and extinction coefficient datasets are sourced from refractiveindex.info, which compiles values from peer-reviewed literature. The database is fully extensible, and contributions from the community are encouraged. Researchers can easily add new materials by submitting issues or pull requests, supporting collaborative growth of the resource.
 
-TMMax also includes a curated **material database** and a comprehensive suite of multilayer thin-film analysis tools, giving researchers a rapid, scalable, and versatile platform for both simulation and design. Its combination of speed, accuracy, and flexibility makes TMMax a powerful Swiss Army knife for thin-film optics research.
+Beyond forward simulation, TMMax natively supports automatic differentiation via JAX’s autograd functionality. This enables analytical gradient calculations of optical properties with respect to arbitrary system parameters. Such capabilities open the door to gradient-based inverse design, optimization workflows assisted by machine learning, and parameter estimation tasks in photonics, thereby establishing TMMax as a powerful enabler for next-generation thin-film engineering.
 
+Benchmarking demonstrates that TMMax is capable of simulating thin-film stacks containing hundreds of layers within seconds. Compared to baseline NumPy implementations, TMMax achieves speedups of several hundred times, providing a substantial advantage in computational throughput. This scalability empowers researchers to efficiently design and optimize large and complex multilayer structures, significantly accelerating the research and development cycle.
+
+.. sidebar:: Documentation Overview
+
+   Installation  
+      Environment setup and dependencies.  
+
+   User Guide  
+      Theoretical background, motivation, and numerical benchmark results.  
+
+   Examples  
+      Demonstration cases for practical use.  
+
+   Workshops  
+      Instructional sessions designed to teach users how to work with TMMax.  
+
+   Contributing  
+      Community guidelines for participation.  
+
+   Credits  
+      References to external projects and resources that inspired this work.  
+
+   FAQ  
+      Frequently asked questions.  
 
 .. toctree::
    :maxdepth: 2
