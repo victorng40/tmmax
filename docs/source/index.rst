@@ -1,4 +1,4 @@
-.. role:: tmmgreen :tmmgreen:`TMMax`
+.. role:: tmmgreen
 
 :tmmgreen:`TMMax`: High-performance modeling of multilayer thin-film structures using transfer matrix method with JAX
 ==========
