@@ -56,7 +56,7 @@ Benchmarking demonstrates that :tmmgreen:`TMMax` is capable of simulating thin-f
        <span class="tooltiptext">Environment setup and dependencies</span>
    </div><br>
 
-   <div class="tooltip"><a href="quickstart.html">Quick Start</a>
+   <div class="tooltip"><a href="quickstart.html">Quickstart</a>
        <span class="tooltiptext">First steps and essential commands</span>
    </div><br>
 
@@ -69,7 +69,7 @@ Benchmarking demonstrates that :tmmgreen:`TMMax` is capable of simulating thin-f
    </div><br>
 
    <div class="tooltip"><a href="tmmax_workshops/index.html">Workshops</a>
-       <span class="tooltiptext">Instructional sessions designed to teach users how to work with :tmmgreen:`TMMax`</span>
+       <span class="tooltiptext">Instructional sessions designed to teach users how to work with TMMax</span>
    </div><br>
 
    <div class="tooltip"><a href="contributing.html">Contributing</a>
