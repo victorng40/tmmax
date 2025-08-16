@@ -1,9 +1,11 @@
-User Guide
+Examples / Tutorials
 ==========
 
 .. toctree::
    :maxdepth: 2
 
-   motivation
-   code_structure
-   benchmarks
+   example1
+   example2
+   example3
+   example4
+   example5
