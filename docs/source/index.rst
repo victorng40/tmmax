@@ -21,6 +21,8 @@ Benchmarking demonstrates that TMMax is capable of simulating thin-film stacks c
 
 .. raw:: html
 
+   <h2>Contents</h2>
+
    <style>
    .tooltip {
        position: relative;
@@ -38,9 +40,9 @@ Benchmarking demonstrates that TMMax is capable of simulating thin-film stacks c
        padding: 6px;
        position: absolute;
        z-index: 1;
-       bottom: 125%;
-       left: 50%;
-       margin-left: -140px;
+       left: 105%; /* show to the right of cursor */
+       top: 50%;
+       transform: translateY(-50%);
        opacity: 0;
        transition: opacity 0.3s;
    }
@@ -81,6 +83,7 @@ Benchmarking demonstrates that TMMax is capable of simulating thin-film stacks c
    <div class="tooltip"><a href="faq.html">FAQ</a>
        <span class="tooltiptext">Frequently asked questions.</span>
    </div><br>
+
 
 .. toctree::
    :hidden:
