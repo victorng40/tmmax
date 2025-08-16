@@ -19,28 +19,78 @@ Beyond forward simulation, TMMax natively supports automatic differentiation via
 
 Benchmarking demonstrates that TMMax is capable of simulating thin-film stacks containing hundreds of layers within seconds. Compared to baseline NumPy implementations, TMMax achieves speedups of several hundred times, providing a substantial advantage in computational throughput. This scalability empowers researchers to efficiently design and optimize large and complex multilayer structures, significantly accelerating the research and development cycle.
 
-.. sidebar:: Documentation Overview
+.. raw:: html
 
-   This documentation is organized to guide the reader 
-   through the capabilities of TMMax:
+   <style>
+   .tooltip {
+       position: relative;
+       display: inline-block;
+       cursor: pointer;
+       margin: 4px 0;
+   }
+   .tooltip .tooltiptext {
+       visibility: hidden;
+       width: 280px;
+       background-color: #333;
+       color: #fff;
+       text-align: left;
+       border-radius: 6px;
+       padding: 6px;
+       position: absolute;
+       z-index: 1;
+       bottom: 125%;
+       left: 50%;
+       margin-left: -140px;
+       opacity: 0;
+       transition: opacity 0.3s;
+   }
+   .tooltip:hover .tooltiptext {
+       visibility: visible;
+       opacity: 1;
+   }
+   </style>
 
-   • **Installation** – environment setup and dependencies  
-   • **User Guide** – theoretical background, motivation, and numerical benchmark results  
-   • **Examples** – demonstration cases for practical use  
-   • **Workshops** – instructional sessions designed to teach users how to work with TMMax  
-   • **Contributing** – community guidelines for participation  
-   • **Credits** – references to external projects and resources that inspired this work  
-   • **FAQ** – frequently asked questions  
+   <div class="tooltip"><a href="installation.html">Installation</a>
+       <span class="tooltiptext">Environment setup and dependencies.</span>
+   </div><br>
+
+   <div class="tooltip"><a href="quickstart.html">Quickstart</a>
+       <span class="tooltiptext">First steps and essential commands.</span>
+   </div><br>
+
+   <div class="tooltip"><a href="user_guide/index.html">User Guide</a>
+       <span class="tooltiptext">Theoretical background, motivation, and numerical benchmark results.</span>
+   </div><br>
+
+   <div class="tooltip"><a href="examples/index.html">Examples</a>
+       <span class="tooltiptext">Demonstration cases for practical use.</span>
+   </div><br>
+
+   <div class="tooltip"><a href="tmmax_workshops/index.html">Workshops</a>
+       <span class="tooltiptext">Instructional sessions designed to teach users how to work with TMMax.</span>
+   </div><br>
+
+   <div class="tooltip"><a href="contributing.html">Contributing</a>
+       <span class="tooltiptext">Community guidelines for participation.</span>
+   </div><br>
+
+   <div class="tooltip"><a href="credits.html">Credits</a>
+       <span class="tooltiptext">References to external projects and resources that inspired this work.</span>
+   </div><br>
+
+   <div class="tooltip"><a href="faq.html">FAQ</a>
+       <span class="tooltiptext">Frequently asked questions.</span>
+   </div><br>
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   installation
-   quickstart
-   user_guide/index
-   examples/index
-   tmmax_workshops/index
-   contributing
-   credits
-   faq
+   installation <installation>
+   quickstart <quickstart>
+   user_guide/index <user_guide/index>
+   examples/index <examples/index>
+   tmmax_workshops/index <tmmax_workshops/index>
+   contributing <contributing>
+   credits <credits>
+   faq <faq>
