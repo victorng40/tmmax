@@ -21,26 +21,16 @@ Benchmarking demonstrates that TMMax is capable of simulating thin-film stacks c
 
 .. sidebar:: Documentation Overview
 
-   Installation  
-      Environment setup and dependencies.  
+   This documentation is organized to guide the reader 
+   through the capabilities of TMMax:
 
-   User Guide  
-      Theoretical background, motivation, and numerical benchmark results.  
-
-   Examples  
-      Demonstration cases for practical use.  
-
-   Workshops  
-      Instructional sessions designed to teach users how to work with TMMax.  
-
-   Contributing  
-      Community guidelines for participation.  
-
-   Credits  
-      References to external projects and resources that inspired this work.  
-
-   FAQ  
-      Frequently asked questions.  
+   • **Installation** – environment setup and dependencies  
+   • **User Guide** – theoretical background, motivation, and numerical benchmark results  
+   • **Examples** – demonstration cases for practical use  
+   • **Workshops** – instructional sessions designed to teach users how to work with TMMax  
+   • **Contributing** – community guidelines for participation  
+   • **Credits** – references to external projects and resources that inspired this work  
+   • **FAQ** – frequently asked questions  
 
 .. toctree::
    :maxdepth: 2
