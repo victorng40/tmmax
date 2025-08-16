@@ -83,14 +83,13 @@ Benchmarking demonstrates that TMMax is capable of simulating thin-film stacks c
    </div><br>
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :hidden:
 
-   installation <installation>
-   quickstart <quickstart>
-   user_guide/index <user_guide/index>
-   examples/index <examples/index>
-   tmmax_workshops/index <tmmax_workshops/index>
-   contributing <contributing>
-   credits <credits>
-   faq <faq>
+   installation
+   quickstart
+   user_guide/index
+   examples/index
+   tmmax_workshops/index
+   contributing
+   credits
+   faq
