@@ -7,7 +7,7 @@ Transfer Matrix Method (TMM) is a technique used to model multilayer optical thi
 
 .. math::
 
-   \mathbf{M} = \mathbf{I}_0 \cdot  \prod_{i=1}^{N-2} \mathbf{M}_i \tag{1}
+   \mathbf{M} = \mathbf{I}_0 \cdot  \prod_{i=1}^{N-2} \mathbf{M}_i
 
 .. math::
 
@@ -25,7 +25,6 @@ Transfer Matrix Method (TMM) is a technique used to model multilayer optical thi
    \alpha_{i, i+1} e^{-j \delta_i} & \gamma_{i, i+1} e^{j \delta_i} \\
    \gamma_{i, i+1} e^{-j \delta_i} & \alpha_{i, i+1} e^{j \delta_i}
    \end{bmatrix}
-   \tag{2}
 
 
 In TMM, the optical behavior of a multilayer structure composed of dielectric materials is obtained by computing the system matrix :math:`\mathbf{M}`, as shown in Equation (1). This matrix calculation, commonly referred to as the Abeles TMM :cite:`refId0`, results from the successive multiplication of the transfer matrices of each layer and interface :cite:`katsidis2002general` as expressed in Equation (2). Each layer is represented as :math:`\mathbf{M}_i = \mathbf{I}_i \mathbf{P}_i`, where :math:`\mathbf{I}_i` denotes the interface matrix and :math:`\mathbf{P}_i` represents the propagation matrix that describes the light propagation through the :math:`i` th layer. The interface matrix :math:`\mathbf{I}_i` contains terms that depend on the reflection and transmission coefficients at the boundary between the :math:`i` th and :math:`(i+1)` th layers.
@@ -37,7 +36,6 @@ In TMM, the optical behavior of a multilayer structure composed of dielectric ma
    \dfrac{n_i \cos\theta_i + n_{i+1} \cos\theta_{i+1}}{2 n_i \cos \theta_i} & \text{(s-pol.)} \\
    \dfrac{n_i \cos\theta_{i+1} + n_{i+1} \cos\theta_{i}}{2 n_i \cos \theta_i} & \text{(p-pol.)}
    \end{cases}
-   \tag{3}
 
 .. math::
 
@@ -46,11 +44,10 @@ In TMM, the optical behavior of a multilayer structure composed of dielectric ma
    \dfrac{n_i \cos\theta_i - n_{i+1} \cos\theta_{i+1}}{2 n_i \cos \theta_i} & \text{(s-pol.)} \\
    \dfrac{n_i \cos\theta_{i+1} - n_{i+1} \cos\theta_{i}}{2 n_i \cos \theta_i} & \text{(p-pol.)}
    \end{cases}
-   \tag{4}
 
 .. math::
 
-   \delta_i = \dfrac{2\pi}{\lambda} n_i d_i \cos \theta_i \tag{5}
+   \delta_i = \dfrac{2\pi}{\lambda} n_i d_i \cos \theta_i
 
 As can be seen in Equation (3) and Equation (4), its elements, :math:`\alpha_{i,i+1}` and :math:`\gamma_{i,i+1}`, vary depending on the polarization of the incoming light. The propagation matrix :math:`\mathbf{P}_i` characterizes the optical phase accumulated by the electromagnetic wave as it traverses the :math:`i` th layer. As detailed in Equation (5), the accumulated phase :math:`\delta_i` is given by :math:`\delta_i = \frac{2\pi}{\lambda} n_i d_i \cos\theta_i`, where complex-valued :math:`n_i` is the sum of the refractive index and extinction coefficient of the layer, :math:`d_i` is the layer thickness, :math:`\theta_i` is the angle of incidence, and :math:`\lambda` is the wavelength of the incoming light :cite:`macleod2010thin`. Finally, the elements of the resulting system matrix :math:`\mathbf{M}` yield the reflection and transmission properties of the optical coating formed by the stack of layers :cite:`harbecke1986coherent`. The TMM relies fundamentally on matrix–matrix multiplications and linear transformations, both of which are computationally efficient operations :cite:`10.1117/12.862566`. Owing to the inherently structured nature of these calculations :cite:`Santbergen:13`, the overall simulation workflow benefits substantially from hardware-level acceleration via vectorization and parallelization. This makes TMM particularly well suited for high-throughput modeling :cite:`Centurioni:05` and optimization of multilayer optical coatings, where rapid evaluation across a wide parameter space is essential :cite:`shi2017optimization`. However, in currently implemented TMM packages :cite:`byrnes2020multilayeropticalcalculations` :cite:`Dmitriev2017PyTMM` :cite:`Dominec2017TransferMatrixMethod`, the angle of incidence and wavelength of the incoming light are typically treated as scalar inputs, rather than as vectorized parameters. 
 

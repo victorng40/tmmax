@@ -55,6 +55,15 @@ bibtex_bibfiles = ["refs.bib"]
 
 math_number_all = True
 
+# Enable amsmath for LaTeX PDF output
 latex_elements = {
     'preamble': r'\usepackage{amsmath}',
+}
+
+# Optional: for MathJax (HTML output)
+mathjax3_config = {
+    "tex": {
+        "packages": {"[+]": ["ams"]},
+        "tags": "all"
+    }
 }
