@@ -6,8 +6,8 @@ project = 'TMMax'
 copyright = '2025, Bahrem S. Danis'
 author = 'Bahrem S. Danis'
 
-release = '0.1.14'
-version = '0.1.14'
+release = '0.1.13'
+version = '0.1.13'
 
 # -- General configuration
 

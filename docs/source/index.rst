@@ -116,3 +116,8 @@ Here is the recommended citation in BibTeX format:
          primaryClass={physics.comp-ph},
          url={https://arxiv.org/abs/2507.11341}, 
    }
+
+License
+==========
+
+This project is licensed under the  `MIT License <https://opensource.org/license/MIT>`_, which permits free use, modification, and distribution of the software, provided that the original copyright notice and license terms are included in all copies or substantial portions of the software. For a detailed explanation of the terms and conditions, please refer to the `LICENSE <https://github.com/bahremsd/tmmax/blob/master/LICENSE>`_ file.
