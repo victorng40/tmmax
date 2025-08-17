@@ -52,3 +52,8 @@ html_title = "TMMax: transfer matrix method with jax"
 html_logo = "_static/logo_tmmax.png"
 
 bibtex_bibfiles = ["refs.bib"]
+
+math_number_all = True
+latex_elements = {
+    'preamble': r'\usepackage{amsmath}',
+}
