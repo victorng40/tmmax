@@ -17,7 +17,8 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
-    'sphinx_favicon',   
+    'sphinx_favicon',
+    'sphinxcontrib.bibtex',   
 ]
 
 intersphinx_mapping = {
@@ -49,3 +50,5 @@ favicons = [
 html_title = "TMMax: transfer matrix method with jax"
 
 html_logo = "_static/logo_tmmax.png"
+
+bibtex_bibfiles = ["refs.bib"]

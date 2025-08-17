@@ -1,3 +1,5 @@
+.. role:: tmmgreen  :tmmgreen:`TMMax`
+
 User Guide
 ==========
 
