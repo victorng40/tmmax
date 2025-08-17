@@ -1,6 +1,6 @@
 .. role:: tmmgreen
 
-Quickstart Example: Computing Reflection and Transmission Spectra
+Quickstart
 ==================
 
 In this section, we demonstrate how to use :tmmgreen:`TMMax` to compute and visualize the reflection and transmission spectra of a multilayer thin-film stack. This walkthrough aims to guide you through each step of the process: from defining the material structure and simulation parameters to extracting the optical response under different polarizations.  
@@ -19,7 +19,7 @@ Here, we consider a **coherent multilayer system** composed of alternating high-
 
 This example serves as an accessible introduction to :tmmgreen:`TMMax` and illustrates the workflow from simulation setup to data visualization.
 
----
+
 
 Step 1: Import the Required Libraries
 --------------------------------------
@@ -31,12 +31,10 @@ The first step is to import the numerical and simulation libraries. We rely on `
    import jax.numpy as jnp
    from tmmax.tmm import tmm
 
-- **``jax.numpy`` (jnp):** Provides the same interface as NumPy but supports JAX’s accelerated computations on CPU, GPU, or TPU.  
-- **``tmm``:** The transfer matrix method solver from :tmmgreen:`TMMax`, which computes reflection (R) and transmission (T) spectra for multilayer thin-film stacks.  
+- ``jax.numpy``: Provides the same interface as NumPy but supports JAX’s accelerated computations on CPU, GPU, or TPU.  
+- ``tmm`` The transfer matrix method solver from :tmmgreen:`TMMax`, which computes reflection (R) and transmission (T) spectra for multilayer thin-film stacks.  
 
-This step establishes the computational foundation for the rest of the simulation.
 
----
 
 Step 2: Define the Multilayer Structure and Simulation Parameters
 -----------------------------------------------------------------
@@ -50,14 +48,12 @@ Next, we describe the multilayer structure and specify the simulation parameters
    wavelength_arr = jnp.linspace(500e-9, 700e-9, 1000)
    angle_of_incidences = jnp.linspace(0, (70*jnp.pi/180), 1000)
 
-- **``material_list``:** Defines the sequence of layers in the multilayer stack. The first layer is air (ambient), followed by alternating layers of Y₂O₃ (yttrium oxide) and TiO₂ (titanium dioxide), and finally SiO₂ (substrate).  
-- **``thickness_list``:** Specifies the physical thickness of each thin film in the stack, in meters. For example, Y₂O₃ layers are 630 nm thick, while TiO₂ layers are 200 nm thick.  
-- **``wavelength_arr``:** The spectral range for simulation, spanning from 500 nm to 700 nm with 1000 sampling points.  
-- **``angle_of_incidences``:** The incidence angle range, sweeping from 0° (normal incidence) up to 70°, also sampled at 1000 points.  
+- ``material_list``: Defines the sequence of layers in the multilayer stack. The first layer is air (ambient), followed by alternating layers of Y₂O₃ (yttrium oxide) and TiO₂ (titanium dioxide), and finally SiO₂ (substrate).  
+- ``thickness_list``: Specifies the physical thickness of each thin film in the stack, in meters. For example, Y₂O₃ layers are 630 nm thick, while TiO₂ layers are 200 nm thick.  
+- ``wavelength_arr``: The spectral range for simulation, spanning from 500 nm to 700 nm with 1000 sampling points.  
+- ``angle_of_incidences``: The incidence angle range, sweeping from 0° (normal incidence) up to 70°, also sampled at 1000 points.  
 
-This step ensures a high-resolution grid for the optical simulation, capturing subtle interference effects in the stack.
 
----
 
 Step 3: Choose Polarization and Run the Simulation
 --------------------------------------------------
@@ -74,8 +70,8 @@ The reflection and transmission depend on the polarization of light. :tmmgreen:`
                   angle_of_incidences = angle_of_incidences,
                   polarization = polarization)
 
-- **``polarization = 's'``:** Specifies s-polarization.  
-- **``R_s``, ``T_s``:** Arrays containing the reflection and transmission coefficients, respectively, as functions of wavelength and angle of incidence.  
+- ``polarization = 's'``: Specifies s-polarization.  
+- ``R_s``, ``T_s``: Arrays containing the reflection and transmission coefficients, respectively, as functions of wavelength and angle of incidence.  
 
 We can repeat the calculation for **p-polarized light** by changing the polarization parameter:
 
@@ -89,7 +85,7 @@ We can repeat the calculation for **p-polarized light** by changing the polariza
                   angle_of_incidences = angle_of_incidences,
                   polarization = polarization)
 
----
+
 
 Step 4: Visualize Reflection and Transmission
 ---------------------------------------------
@@ -140,7 +136,7 @@ Finally, we visualize the computed reflection and transmission spectra. The plot
 
    Reflection spectrum of the multilayer stack for s-polarized light. The figure shows reflection intensity as a function of both wavelength and angle of incidence.
 
----
+
 
 **Transmission Spectrum:**
 
@@ -186,6 +182,6 @@ Finally, we visualize the computed reflection and transmission spectra. The plot
 
    Transmission spectrum of the multilayer stack for s-polarized light. The figure shows transmission intensity as a function of both wavelength and angle of incidence.
 
----
+
 
 The plotted figures for reflection and transmission provide valuable insights into the system’s optical performance. In practice, such simulations form the foundation of **thin-film engineering**, where optimized stacks are designed for applications like anti-reflective coatings, photonic crystals, or high-reflectivity dielectric mirrors. :tmmgreen:`TMMax` makes this process accessible and efficient, combining numerical accuracy with computational speed.  
