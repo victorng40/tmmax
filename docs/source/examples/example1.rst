@@ -1,7 +1,6 @@
 Example 1 - Visualizing nk Data
 ===============================
 
-.. toctree::
-   :maxdepth: 1
+This example demonstrates...
 
-   visualizing_nk_data
+.. nbinclude:: visualizing_nk_data.ipynb
