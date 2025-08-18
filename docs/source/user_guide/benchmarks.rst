@@ -6,7 +6,7 @@ Benchmarks
 In multilayer optical thin-film simulations using the TMM, evaluating the runtime under different configurations and analyzing scalability are critical, as the parameters that most significantly affect runtime include the number of layers in the multilayer structure, the length of the wavelength array, and the length of the angle of incidence array. Each of these parameters can substantially increase the computational load. To benchmark the performance of the :tmmgreen:`TMMax` library, we used the tmm library developed by Steven Byrnes, which is implemented in Python using the NumPy, as the baseline. In all comparisons, both libraries receive identical inputs; that is, the same layer structure, material parameters, wavelength arrays, and angle arrays, ensuring a direct and fair performance comparison.
 
 .. figure:: ../_static/layer_benchmark_figure.png
-   :width: 65%
+   :width: 90%
    :align: center
 
    Run time as a function of layer size, shown on a semi-logarithmic scale, comparing the tmm package (orange) with :tmmgreen:`TMMax` (blue). While the tmm runtime increases steeply with the number of layers, :tmmgreen:`TMMax` exhibits significantly improved scalability, with runtime growing slowly and eventually flattening for large stacks. The inset highlights that :tmmgreen:`TMMax` maintains a nearly constant execution time (1.0–1.2 s) for small layer counts (2, 22, 42). As the number of layers increases, the performance advantage of :tmmgreen:`TMMax` becomes more pronounced, reaching a speedup of approximately 18× at 2 layers and up to 700× at 400 layers.
