@@ -28,10 +28,7 @@ A2: TMMax is compatible with Python 3.9 and above.
 A3: Please open an issue on the TMMax GitHub repository:  
    `TMMax Issues <https://github.com/bahremsd/tmmax/issues>`_
 
-**Q4: TMMax is running slowly. How can I improve performance?**  
-A4: TMMax leverages JAX for GPU/TPU acceleration. Make sure you have a GPU configured, and use JAX with GPU support. Additionally, ensure you use vectorized operations and avoid Python loops where possible.
-
-**Q5: I encounter an error importing TMMax modules. What should I do?**  
+**Q4: I encounter an error importing TMMax modules. What should I do?**  
 A5: This usually occurs when dependencies are missing or your environment is misconfigured. Try reinstalling TMMax in a clean virtual environment:
 
    .. code-block:: bash
