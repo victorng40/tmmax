@@ -20,8 +20,6 @@ extensions = [
     'sphinx_favicon',
     'sphinxcontrib.bibtex',
     'nbsphinx',
-    'nbconvert',
-    'ipykernel', 
 ]
 
 intersphinx_mapping = {
@@ -58,6 +56,5 @@ bibtex_bibfiles = ["refs.bib"]
 
 math_number_all = True
 
-nbsphinx_execute = 'never'
-
+nbsphinx_execute = "never"
 
