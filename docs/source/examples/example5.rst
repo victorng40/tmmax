@@ -3,4 +3,7 @@ Example 5 - Thickness Sensitivity
 
 This example demonstrates...
 
-thickness_sensitivity
+.. toctree::
+   :maxdepth: 2
+
+   thickness_sensitivity

@@ -3,4 +3,7 @@ Example 1 - Visualizing nk Data
 
 This example demonstrates...
 
-visualizing_nk_data
+.. toctree::
+   :maxdepth: 2
+
+   visualizing_nk_data

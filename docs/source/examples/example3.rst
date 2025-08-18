@@ -3,4 +3,7 @@ Example 3 - Two Layer W-Coating
 
 This example demonstrates...
 
-two_layer_w_coating
+.. toctree::
+   :maxdepth: 2
+
+   two_layer_w_coating
