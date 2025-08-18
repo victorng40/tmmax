@@ -1,14 +1,19 @@
 Istanbul Technical University - FIZ 510
-=========
+=======================================
 
 This example demonstrates...
 
-.. code-cell:: python
+.. toctree::
+   :maxdepth: 1
 
-    import tmmax
-    s = tmmax.Stack()
-    s.add_layer("SiO2", 100)
-    s.simulate()
+   1_python_introduction
 
-.. image:: _static/example1_fig.png
-   :alt: Example 1 figure
+.. toctree::
+   :maxdepth: 1
+
+   2_jax_introduction
+
+.. toctree::
+   :maxdepth: 1
+
+   3_tmmax_introduction
