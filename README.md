@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://pypi.org/project/tmmax/">
-    <img src="https://github.com/bahremsd/tmmax/blob/master/docs/docs/source/_static/logo_tmmax.png" alt="tmmax">
+    <img src="https://github.com/bahremsd/tmmax/blob/master/docs/source/_static/logo_tmmax.png" alt="tmmax">
   </a>
 </div>
 
