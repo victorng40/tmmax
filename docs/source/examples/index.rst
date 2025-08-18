@@ -1,4 +1,4 @@
-Examples / Tutorials
+Examples
 ==========
 
 .. toctree::
