@@ -19,10 +19,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx_favicon',
     'sphinxcontrib.bibtex',
-    'myst_nb',
-    'jax',
-    'tmmax',
-    'matplotlib',   
+    'myst_nb',  
 ]
 
 intersphinx_mapping = {
@@ -58,3 +55,7 @@ html_logo = "_static/logo_tmmax.png"
 bibtex_bibfiles = ["refs.bib"]
 
 math_number_all = True
+
+nbsphinx_execute = 'never'
+
+
