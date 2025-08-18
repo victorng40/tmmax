@@ -4,3 +4,6 @@ sphinx-favicon==1.0.1
 furo==2025.7.19
 sphinxcontrib-bibtex
 myst-nb
+jax
+tmmax
+matplotlib

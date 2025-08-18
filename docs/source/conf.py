@@ -19,7 +19,10 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx_favicon',
     'sphinxcontrib.bibtex',
-    'myst_nb',   
+    'myst_nb',
+    'jax',
+    'tmmax',
+    'matplotlib',   
 ]
 
 intersphinx_mapping = {
