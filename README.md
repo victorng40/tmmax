@@ -1,8 +1,8 @@
-# **tmmax: transfer matrix method with jax**
+# **TMMax: High-performance modeling of multilayer thin-film structures using transfer matrix method with JAX**
 
 <div align="center">
   <a href="https://pypi.org/project/tmmax/">
-    <img src="https://github.com/bahremsd/tmmax/blob/master/docs/images/logo_tmmax.png" alt="tmmax">
+    <img src="https://github.com/bahremsd/tmmax/blob/master/docs/docs/source/_static/logo_tmmax.png" alt="tmmax">
   </a>
 </div>
 
@@ -183,4 +183,4 @@ Also if you find the `tmmax` library beneficial in your work, we kindly ask that
 
 For any questions, suggestions, or issues you encounter, feel free to [open an issue](https://github.com/bahremsd/tmmax/issues) on the GitHub repository. This not only ensures that your concern is shared with the community but also allows for collaborative problem-solving and creates a helpful reference for similar challenges in the future. If you would like to collaborate or contribute to the code, you can contact me via email.
 
-Bahrem Serhat Danis - bahremdan@gmail.com
+Bahrem Serhat Danis - bdanis23@ku.edu.tr
