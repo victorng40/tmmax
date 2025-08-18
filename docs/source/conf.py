@@ -18,7 +18,8 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx_favicon',
-    'sphinxcontrib.bibtex',   
+    'sphinxcontrib.bibtex',
+    'myst_nb',   
 ]
 
 intersphinx_mapping = {

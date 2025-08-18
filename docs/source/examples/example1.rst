@@ -1,14 +1,9 @@
-Example 1
-=========
+Example 1 - Visualizing nk Data
+===============================
 
 This example demonstrates...
 
-.. code-cell:: python
+.. toctree::
+   :maxdepth: 2
 
-    import tmmax
-    s = tmmax.Stack()
-    s.add_layer("SiO2", 100)
-    s.simulate()
-
-.. image:: _static/example1_fig.png
-   :alt: Example 1 figure
+   visualizing_nk_data
