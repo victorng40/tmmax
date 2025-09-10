@@ -31,7 +31,7 @@ Originally architected for CPU-based execution to ensure accessibility and scala
 
 ## Documentation
 
-The complete documentation for tmmax is available in the [Example Gallery](https://github.com/bahremsd/tmmax/tree/master/docs/examples) within the `docs` directory. This repository provides an extensive set of examples demonstrating the key functionalities of tmmax, enabling users to efficiently analyze and manipulate multilayer thin-film stacks.
+The complete documentation for TMMax is available in the [TMMax Read The Docs](https://tmmax.readthedocs.io/en/latest/). This repository provides an extensive set of examples demonstrating the key functionalities of tmmax, enabling users to efficiently analyze and manipulate multilayer thin-film stacks.
 
 The examples cover fundamental and advanced use cases, including:
 
