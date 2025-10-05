@@ -12,11 +12,9 @@ tags:
 authors:
   - name: Bahrem Serhat Danis
     orcid: 0009-0002-9880-0446
-    equal-contrib: false
     affiliation: "1"
   - name: Esra Zayim
     orcid: 0000-0001-5887-0293
-    equal-contrib: false
     affiliation: "2"
 
 
@@ -47,16 +45,16 @@ In TMM, the optical behavior of a multilayer structure composed of dielectric ma
 
 \begin{figure*}[h]
 \centering\includegraphics[width=\textwidth]{figure1.pdf}
-\caption{ Schematic of two strategies for calculating transmission, reflection, and absorption in multilayer thin-film simulations. The system (a) is modeled either by sequentially multiplying 2×2 transfer matrices for each wavelength and incidence angle (b) or by vectorizing these operations across both axes (c).}
+\caption{Schematic of two strategies for calculating transmission, reflection, and absorption in multilayer thin-film simulations. The system (a) is modeled either by sequentially multiplying 2×2 transfer matrices for each wavelength and incidence angle (b) or by vectorizing these operations across both axes (c).}
 \end{figure*}
 
-In traditional TMM implementations, the stack of layers in Figure 1a is simulated using a single wavelength and angle of incidence, as shown in Figure 1b, and nested loops over wavelengths and angles lead to redundant calculations. [@byrnes2020multilayeropticalcalculations]. TMMax removes these redundancies by vectorizing wavelengths and angles and all intermediate TMM operations via JAX [@jax2018github]. As seen in the schematic of the vectorized implementation in Figure 1c, we vectorize all intermediate operations in TMM and subsequently apply the JAX’s just-in-time (JIT) decorator. Instead of running the mapped TMM code sequentially over each batch element of wavelength and angle of incidence, jax.jit fuses all operations across the batch into a single XLA-compiled [@xla2023github] kernel. This reduces function call overhead and provides a faster TMM implementation. TMMax replaces the conventional for-loop system-matrix calculation [@6131837] with JAX’s lax.scan, enabling JIT compilation and eliminating interpreter bottlenecks, while running efficiently on CPUs, GPUs, and TPUs without code changes. 
+In traditional TMM implementations, the stack of layers in Figure 1a is simulated using a single wavelength and angle of incidence, as shown in Figure 1b, and nested loops over wavelengths and angles lead to redundant calculations [@byrnes2020multilayeropticalcalculations]. TMMax removes these redundancies by vectorizing wavelengths and angles and all intermediate TMM operations via JAX [@jax2018github]. As seen in the schematic of the vectorized implementation in Figure 1c, we vectorize all intermediate operations in TMM and subsequently apply the JAX’s just-in-time (JIT) decorator. Instead of running the mapped TMM code sequentially over each batch element of wavelength and angle of incidence, jax.jit fuses all operations across the batch into a single XLA-compiled [@xla2023github] kernel. This reduces function call overhead and provides a faster TMM implementation. TMMax replaces the conventional for-loop system-matrix calculation [@6131837] with JAX’s lax.scan, enabling JIT compilation and eliminating interpreter bottlenecks, while running efficiently on CPUs, GPUs, and TPUs without code changes. 
 
-TMMax supports deep learning–based inverse design by keeping all computations on the GPU, avoiding costly CPU–GPU data transfers [@10.1117/1.OE.58.6.065103]. Whereas NumPy-based [@2020NumPy-Array] TMM packages that lack native gradients and require Autograd [@maclaurin2015autograd], TMMax natively computes gradients. Additionally, conventional TMM packages that focus on system matrices and offer limited, manually entered material data [@Luce:22; @leandro_acquaroli_2022_6479354], TMMax incorporates a curated database of 30 widely used materials, selected from Thin-Film Optical Filters [@macleod2010thin] and sourced from the verified refractiveindex.info database [@polyanskiy2024refractiveindex].
+TMMax supports deep learning–based inverse design by keeping all computations on the GPU, avoiding costly CPU–GPU data transfers [@10.1117/1.OE.58.6.065103]. Whereas NumPy-based [@2020NumPy-Array] TMM packages that lack native gradients and require Autograd [@maclaurin2015autograd], TMMax natively computes gradients. Additionally, TMMax integrates a curated database of 30 extensively used optical materials, sourced from refractiveindex.info [@polyanskiy2024refractiveindex], thereby enabling optical engineers and thin-film researchers in optics and photonics to efficiently simulate complex dielectric multilayer structures through a scalable, JAX-accelerated implementation.
 
 # Benchmarks
 
-In multilayer thin-film simulations using TMM, runtime critically depends on the number of layers, wavelength array length, and angle of incidence array length, each substantially affecting computational load. To benchmark TMMax, we used Steven Byrnes’ Python tmm library (NumPy) as a baseline.
+In multilayer thin-film simulations using TMM, runtime critically depends on the number of layers, wavelength array length, and angle of incidence array length, each substantially affecting computational load. To benchmark TMMax, we used Steven Byrnes’ Python tmm library [@byrnes2020multilayeropticalcalculations] as a baseline.
 
 \begin{figure*}[h]
 \centering\includegraphics[width=0.75\textwidth]{figure2.pdf}
@@ -76,7 +74,7 @@ We used Python’s timeit module to benchmark each simulation 50 times, averagin
 
 # Installation
 
-TMMax can be readily installed from the Python Package Index using `pip install tmmax`, which automatically handles all dependencies.
+TMMax can be readily installed from the Python Package Index using `pip install tmmax`, which automatically handles all dependencies. For detailed installation instructions and platform compatibility, please refer to the [TMMax Documentation](https://tmmax.readthedocs.io/en/latest/index.html).
 
 # Acknowledgements
 
