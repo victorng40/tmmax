@@ -1,3 +1,2 @@
-include param2geometry/data/drc/template_drc.lydrc
-include param2geometry/data/model/size_mapping_equal_ratio.npy
-include param2geometry/data/model/weights/*
+include tmmax/nk_data/*.csv
+include tmmax/nk_data/*.npy

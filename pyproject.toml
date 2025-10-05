@@ -3,6 +3,79 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "lumache"
+name = "tmmax"
 authors = [{name = "Bahrem Serhat Danis", email = "bdanis23@ku.edu.tr"}]
 dynamic = ["version", "description"]
+
+# Clear metadata improves distribution and transparency
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+keywords = ["tmm", "optics", "photonics", "jax", "thin", "film", "dielectic", "vectorization", "jit", "coating"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+# Runtime dependencies
+dependencies = [
+  "jax>=0.5.0",
+  "matplotlib>=3.10.0",
+  "numpy>=2.2.2",
+  "pandas>=2.2.3",
+  "scipy>=1.15.1"
+]
+
+[project.optional-dependencies]
+# Extras are recommended because they let people install only what they need:
+# - tests → run the test suite
+# - docs  → build the documentation
+# - dev   → contribute with linting, formatting, and type-checking
+test = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "coverage[toml]>=7.5",
+  "hypothesis>=6.0",
+  "tmm==0.2.0",
+  "tensorflow>=2.0",
+  "numpy>=1.16",
+  "vtmm==0.1",
+  "torch>=1.9",
+  "matplotlib",
+  "gymnasium",
+  "tmm-fast==0.2.1"
+]
+
+docs = [
+  "mkdocs>=1.6",
+  "mkdocs-material>=9.5",
+  "mkdocstrings[python]>=0.25",
+  "mkdocs-literate-nav>=0.6",
+  "mkdocs-section-index>=0.3",
+  "mkdocs-gen-files>=0.5",
+  "mike>=2.1"
+]
+
+dev = [
+  "ruff>=0.6",
+  "black>=24.0",
+  "pre-commit>=3.6",
+  "mypy>=1.10",
+  "build>=1.2",
+  "twine>=5.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/bahremsd/tmmax"
+Repository = "https://github.com/bahremsd/tmmax"
+Issues = "https://github.com/bahremsd/tmmax/issues"
+Documentation = "https://tmmax.readthedocs.io/en/latest/"
+
+[tool.coverage.run]
+branch = true
+source = ["tmmax"]
+
+[tool.pytest.ini_options]
+addopts = "-q --cov=tmmax --cov-report=term-missing"
