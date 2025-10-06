@@ -84,7 +84,7 @@ for i in range(len(wl_arr_lengths)):
         print(f"{wl_arr_length}, {angle_of_incidences_arr_length} tmmax took ", t_tmmax)
 
 
-np.save("time_of_tmm_wl_theta_arr_exp4.npy", time_tmm)
-np.save("time_of_vtmm_wl_theta_arr_exp4.npy", time_vtmm)
-np.save("time_of_tmm_fast_wl_theta_arr_exp_8.npy", time_tmm_fast)
-np.save("time_of_tmmax_wl_theta_arr_exp4.npy", time_tmmax)
+np.save("time_of_tmm_wl_theta_arr.npy", time_tmm)
+np.save("time_of_vtmm_wl_theta_arr.npy", time_vtmm)
+np.save("time_of_tmm_fast_wl_theta_arr.npy", time_tmm_fast)
+np.save("time_of_tmmax_wl_theta_arr.npy", time_tmmax)

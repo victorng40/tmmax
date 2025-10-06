@@ -1,2 +1,2 @@
-include tmmax/nk_data/*.csv
-include tmmax/nk_data/*.npy
+include tmmax/nk_data/csv/*.csv
+include tmmax/nk_data/numpy/*.npy

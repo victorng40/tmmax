@@ -96,7 +96,7 @@ for N in number_of_layers:
     print(f"{N} tmmax took ", t_tmmax)
 
 # Save the time measurements for each method into .npy files
-np.save("time_of_tmm.npy", time_tmm)
-np.save("time_of_vtmmbur.npy", time_vtmm)
-np.save("time_of_tmm_fastbur.npy", time_tmm_fast)
-np.save("time_of_tmmaxbur.npy", time_tmmax)
+np.save("layer_count_exp_time_of_tmm.npy", time_tmm)
+np.save("layer_count_exp_time_of_vtmm.npy", time_vtmm)
+np.save("layer_count_exp_time_of_tmm_fast.npy", time_tmm_fast)
+np.save("layer_count_exp_time_of_tmmax.npy", time_tmmax)
