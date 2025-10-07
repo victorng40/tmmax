@@ -2,7 +2,6 @@
 
 [![PyPI Version](https://img.shields.io/pypi/v/tmmax.svg)](https://pypi.org/project/tmmax/)
 [![License](https://img.shields.io/github/license/bahremsd/tmmax.svg)](https://github.com/serhatdann/tmmax/blob/main/LICENSE)
-[![Build Status](https://github.com/serhatdann/tmmax/actions/workflows/tests.yml/badge.svg)](https://github.com/serhatdann/tmmax/actions)
 [![Documentation Status](https://readthedocs.org/projects/tmmax/badge/?version=latest)](https://tmmax.readthedocs.io/en/latest/index.html)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.xxxxxxx.svg)](https://doi.org/10.48550/arXiv.2507.11341)
 
