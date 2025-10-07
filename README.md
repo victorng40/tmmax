@@ -135,17 +135,13 @@ In evaluating the performance of various transfer matrix method implementations,
 
 ### Layer Size vs Run Time
 
-One of the primary factors influencing computational complexity in tmm simulations is the number of layers in the multilayer stack. We benchmarked [`tmm`](https://github.com/sbyrnes321/tmm), [`tmm-fast`](https://github.com/MLResearchAtOSRAM/tmm_fast), [`vtmm`](https://github.com/fancompute/vtmm), and `tmmax` to assess their performance under increasing layer counts. The results indicate that as the number of layers grows, tmmax demonstrates good scalability compared to other implementations. This makes tmmax particularly well-suited for simulating highly complex multilayer structures without significant degradation in performance.
+One of the primary factors influencing computational complexity in tmm simulations is the number of layers in the multilayer stack. We benchmarked [`tmm`](https://github.com/sbyrnes321/tmm) and `tmmax` to assess their performance under increasing layer counts. The results indicate that as the number of layers grows, tmmax demonstrates good scalability compared to other implementations. This makes tmmax particularly well-suited for simulating highly complex multilayer structures without significant degradation in performance.
 
 <div align="center">
   <img src="https://github.com/bahremsd/tmmax/blob/master/docs/source/_static/layer_benchmark_figure.png" alt="layer_size_exp">
 </div>
 
 ### Wavelength and Angle of Incidence Array Lengths vs Run Time
-
-Apart from layer count, the length of the wavelength array and angle of incidence array significantly impact computational performance. Our analysis revealed that `tmm-fast` exhibited slower execution times relative to `vtmm` and `tmmax` under single-threaded execution. However, it is important to note that `tmm-fast` is explicitly optimized for multi-core CPU execution and GPU acceleration. Thus, benchmarking `tmm-fast` on a single-core CPU does not reflect its full performance potential.
-
-When comparing `vtmm` and `tmmax`, both demonstrated similar runtime performance across varying array lengths. However, as the layer count increased from 8 to 80, `vtmm` exhibited a higher runtime overhead than `tmmax`. Additionally, it is worth noting that these benchmarks were conducted on an "Initial beta" version of `vtmm`, and future iterations may yield different performance characteristics. Therefore, a reevaluation on updated `vtmm` releases is recommended.
 
 <div align="center">
   <img src="https://github.com/bahremsd/tmmax/blob/master/docs/source/_static/array_benchmark_figure.png" alt="vmap_array_length_exp">
