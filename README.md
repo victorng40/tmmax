@@ -1,5 +1,10 @@
 # **TMMax: High-performance modeling of multilayer thin-film structures using transfer matrix method with JAX**
 
+[![PyPI Version](https://img.shields.io/pypi/v/tmmax.svg)](https://pypi.org/project/tmmax/)
+[![License](https://img.shields.io/github/license/bahremsd/tmmax.svg)](https://github.com/serhatdann/tmmax/blob/main/LICENSE)
+[![Documentation Status](https://readthedocs.org/projects/tmmax/badge/?version=latest)](https://tmmax.readthedocs.io/en/latest/index.html)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.xxxxxxx.svg)](https://doi.org/10.48550/arXiv.2507.11341)
+
 <div align="center">
   <a href="https://pypi.org/project/tmmax/">
     <img src="https://github.com/bahremsd/tmmax/blob/master/docs/source/_static/logo_tmmax.png" alt="tmmax">
@@ -73,7 +78,7 @@ R_p, T_p = tmm(material_list = material_list,
 ```
 
 <div align="center">
-  <img src="https://github.com/bahremsd/tmmax/blob/master/docs/images/thin_film_example.png" alt="usage_example">
+  <img src="https://github.com/bahremsd/tmmax/blob/master/docs/source/_static/quickstart_example.png" alt="usage_example">
 </div>
 
 For cases where an incoherent layer is introduced within the stack, the simulation should include averaging effects of "thick" layers. In tmmax, incoherent layers are denoted by `1`, while coherent layers remain as `0`. The following example demonstrates the configuration of the same stack with incoherent layers:
@@ -114,11 +119,11 @@ The `tmmax` repository features a database of 29 materials commonly used in opti
 
 Most of the refractive index and extinction coefficient data for the materials in the database is obtained from [refractiveindex.info](https://refractiveindex.info/), which itself aggregates data from various research articles. To ensure proper attribution, we will provide references to the original sources for each material in the `docs/database_info` folder. You can access these references by reviewing the `README` file in that directory. 
 
-For example, to visualize the n and k data for SiO2, a material with widely accepted optical properties, you can use the `visualize_material_properties(material_name = "SiO2")` function in the `tmmax/data`. This allows for a straightforward representation of the material's refractive index and extinction coefficient.
+For example, to visualize the n and k data for SiO2, a material with widely accepted optical properties, you can use the `visualize_material_properties(material_name = "SiO2")` function in the `tmmax/nk_data`. This allows for a straightforward representation of the material's refractive index and extinction coefficient.
 
 
 <div align="center">
-  <img src="https://github.com/bahremsd/tmmax/blob/master/docs/images/SiO2_nk_plot.png" alt="database_example_sio2">
+  <img src="https://github.com/bahremsd/tmmax/blob/master/docs/source/_static/SiO2_nk_plot.png" alt="database_example_sio2">
 </div>
 
 The database is designed to be extensible, and we plan to include additional materials in future versions of tmmax. Contributions are welcome, and if you have a material you would like to add, please feel free to open an issue or submit a pull request. 
@@ -129,29 +134,214 @@ In evaluating the performance of various transfer matrix method implementations,
 
 ### Layer Size vs Run Time
 
-One of the primary factors influencing computational complexity in tmm simulations is the number of layers in the multilayer stack. We benchmarked [`tmm`](https://github.com/sbyrnes321/tmm), [`tmm-fast`](https://github.com/MLResearchAtOSRAM/tmm_fast), [`vtmm`](https://github.com/fancompute/vtmm), and `tmmax` to assess their performance under increasing layer counts. The results indicate that as the number of layers grows, tmmax demonstrates good scalability compared to other implementations. This makes tmmax particularly well-suited for simulating highly complex multilayer structures without significant degradation in performance.
+One of the primary factors influencing computational complexity in tmm simulations is the number of layers in the multilayer stack. We benchmarked [`tmm`](https://github.com/sbyrnes321/tmm) and `tmmax` to assess their performance under increasing layer counts. The results indicate that as the number of layers grows, tmmax demonstrates good scalability compared to other implementations. This makes tmmax particularly well-suited for simulating highly complex multilayer structures without significant degradation in performance.
 
 <div align="center">
-  <img src="https://github.com/bahremsd/tmmax/blob/master/benchmarks/layer_size_exp_results/layer_size_figure.png" alt="layer_size_exp">
+  <img src="https://github.com/bahremsd/tmmax/blob/master/docs/source/_static/layer_benchmark_figure.png" alt="layer_size_exp">
 </div>
 
 ### Wavelength and Angle of Incidence Array Lengths vs Run Time
 
-Apart from layer count, the length of the wavelength array and angle of incidence array significantly impact computational performance. Our analysis revealed that `tmm-fast` exhibited slower execution times relative to `vtmm` and `tmmax` under single-threaded execution. However, it is important to note that `tmm-fast` is explicitly optimized for multi-core CPU execution and GPU acceleration. Thus, benchmarking `tmm-fast` on a single-core CPU does not reflect its full performance potential.
-
-When comparing `vtmm` and `tmmax`, both demonstrated similar runtime performance across varying array lengths. However, as the layer count increased from 8 to 80, `vtmm` exhibited a higher runtime overhead than `tmmax`. Additionally, it is worth noting that these benchmarks were conducted on an "Initial beta" version of `vtmm`, and future iterations may yield different performance characteristics. Therefore, a reevaluation on updated `vtmm` releases is recommended.
-
 <div align="center">
-  <img src="https://github.com/bahremsd/tmmax/blob/master/benchmarks/vmap_array_length_exp_results/vmap_array_length_figure.png" alt="vmap_array_length_exp">
+  <img src="https://github.com/bahremsd/tmmax/blob/master/docs/source/_static/array_benchmark_figure.png" alt="vmap_array_length_exp">
 </div>
 
-## Installation
 
-You can install `tmmax` via PyPI:
+## Minimum Requirements and Installation
+
+- **Python**: ≥ 3.9  
+- **Operating System**: Linux, macOS, or Windows  
+- **Dependencies**:
+  - `jax>=0.5.0`
+  - `jaxlib>=0.5.0`
+  - `numpy>=2.2.2`
+  - `scipy>=1.15.1`
+  - `pandas>=2.2.3`
+  - `matplotlib>=3.10.0`
+
+These dependencies are automatically installed when you install TMMax via pip.
 
 ```bash
-pip3 install tmmax
+pip install tmmax
 ```
+
+## Install from Source
+
+```bash
+git clone https://github.com/bahremsd/tmmax.git
+cd tmmax
+pip install .
+```
+
+You may also install optional dependencies for documentation, testing, or development:
+
+```bash
+pip install tmmax[test]
+pip install tmmax[docs]
+pip install tmmax[dev]
+```
+
+## Running TMMax on CPU, GPU, and TPU
+
+TMMax can run on multiple hardware backends via JAX — CPU by default, GPU or TPU if available.
+
+### 1. Running TMMax on CPU (Default)
+
+By default, JAX installs CPU-only binaries.
+
+**Installation:**
+
+```bash
+pip install -U jax jaxlib
+```
+
+**Verification:**
+
+```bash
+python -c "import jax; print(jax.devices())"
+```
+
+**Example output:**
+
+```
+[CpuDevice(id=0)]
+```
+
+If you see `CpuDevice(id=0)`, TMMax is running on CPU.
+
+---
+
+### 2. Running TMMax on NVIDIA GPU
+
+If your system has a CUDA-capable GPU, install JAX with GPU support.
+
+**Uninstall existing JAX (CPU-only):**
+
+```bash
+pip uninstall jax jaxlib -y
+```
+
+**Install CUDA-enabled JAX (example for CUDA 12):**
+
+```bash
+pip install -U "jax[cuda12]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+```
+
+**Verify GPU detection:**
+
+```bash
+python -c "import jax; print(jax.devices())"
+```
+
+**Example output:**
+
+```
+[GpuDevice(id=0, process_index=0)]
+```
+
+If you see `GpuDevice`, TMMax will automatically use GPU acceleration.
+
+**Common Tips:**
+
+- Ensure CUDA Toolkit and cuDNN are installed correctly.  
+- No need to modify TMMax code — JAX automatically handles device dispatching.
+
+---
+
+### 3. Running TMMax on TPU (Google Cloud / Colab)
+
+TMMax also supports TPU computation through JAX on Google Cloud or Colab TPUs.
+
+**To use TPU on Colab:**
+
+1. Go to **Runtime → Change runtime type → TPU**  
+2. Run the setup cell:
+
+```python
+import jax
+print(jax.devices())
+```
+
+**Expected output:**
+
+```
+[TpuDevice(id=0), TpuDevice(id=1), ...]
+```
+
+JAX automatically configures TPU execution in TMMax — no code modification required.
+
+For production or HPC TPU environments, follow the official JAX TPU installation guide: [JAX TPU Installation Guide](https://jax.readthedocs.io/en/latest/installation.html#tpu)
+
+---
+
+## Running Tests
+
+TMMax includes a robust **Pytest-based test suite** for validation and performance benchmarking.
+
+### Run All Tests
+
+```bash
+pytest
+```
+
+### Run Tests with Coverage Report
+
+```bash
+pytest --cov=tmmax --cov-report=term-missing
+```
+
+### Run Specific Test Files
+
+```bash
+pytest tests/test_benchmark.py
+pytest tests/test_integration.py
+```
+
+### Benchmark Validation
+
+TMMax includes performance benchmarks for JAX and vectorized TMM implementations.  
+To verify benchmark correctness:
+
+```bash
+pytest tests/test_benchmark.py -v
+```
+
+Expected output should include timing comparisons and correctness assertions for saved benchmark files.
+
+---
+
+## Development
+
+Contributions are welcome! To set up a development environment:
+
+```bash
+git clone https://github.com/bahremsd/tmmax.git
+cd tmmax
+pip install -e .[dev]
+```
+
+Before submitting a pull request, please:
+
+- Run code formatting:
+
+```bash
+black tmmax
+ruff check tmmax
+```
+
+- Run all tests:
+
+```bash
+pytest
+```
+
+
+## Contributing
+
+We warmly welcome contributions from the community to improve TMMax. This project thrives thanks to the collaborative effort of researchers, engineers, and enthusiasts in the field of optical multilayer thin-film simulations. Whether you are fixing a bug, suggesting a new feature, improving documentation, or enhancing performance, your input is highly valued and appreciated. For detailed instructions on how to contribute, please see the
+[Contribution Guidelines](https://tmmax.readthedocs.io/en/latest/contributing.html)
+in the documentation.
+
 
 ## License
 
@@ -161,14 +351,11 @@ This project is licensed under the [MIT License](https://opensource.org/license/
 
 This repository sometimes utilizes approaches from Steven Byrnes' [`tmm`](https://github.com/sbyrnes321/tmm) library, and we thank him for its development. In the context of calculating the optical properties of incoherent multilayer thin films, we used the approach from a paper by _Charalambos C. Katsidis and Dimitrios I. Siapkas, "General transfer-matrix method for optical multilayer systems with coherent, partially coherent, and incoherent interference"_ (Applied Optics, 41(19):3978) 2002 [doi](https://doi.org/10.1364/AO.41.003978).
 
-For further exploration, we also recommend examining the [`vtmm`](https://github.com/fancompute/vtmm) and [`tmm-fast`](https://github.com/MLResearchAtOSRAM/tmm_fast) libraries, which offer alternative approaches for thin film simulation. In particular, the tmm-fast library integrates GPU acceleration via the PyTorch framework, providing a significant performance boost for batched simulations. We strongly encourage leveraging this capability if you have access to GPU resource.
 
-As discussed, certain tmm implementations leverage GPU acceleration for enhanced computational efficiency. Specifically, `vtmm` is implemented in TensorFlow, while `tmm-fast` is developed using Pytorch with multi-threading and GPU compatibility. Consequently, if a GPU is available, the benchmarks presented here may not be representative, and users are encouraged to perform their own comparative analyses of `vtmm`, `fast-tmm`, and `tmmax` under GPU-accelerated conditions. For a detailed breakdown of benchmark results and implementation details, refer to the `benchmark` directory within the repository.
-
-Also if you find the `tmmax` library beneficial in your work, we kindly ask that you consider citing us.
+If you find the `tmmax` library beneficial in your work, we kindly ask that you consider citing us.
 
 ```bibtex
-@misc{danis2025tmmaxhighperformancemodelingmultilayer,
+@misc{danis2025tmmax,
       title={TMMax: High-performance modeling of multilayer thin-film structures using transfer matrix method with JAX}, 
       author={Bahrem Serhat Danis and Esra Zayim},
       year={2025},

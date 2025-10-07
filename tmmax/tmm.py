@@ -3,6 +3,7 @@ from jax import jit, vmap # Importing jit for JIT compilation and vmap for effic
 from jax import Array # Type definition for JAX arrays
 from jax.typing import ArrayLike # JAX type hint for array-like objects (supports numpy, JAX arrays, etc.)
 from typing import List, Tuple, Text
+import numpy as np # just for np.any in the tmm function for checking input values
 
 from .angle import compute_layer_angles
 from .wavevector import compute_kz, compute_inc_layer_pass
@@ -652,6 +653,51 @@ def tmm(material_list: List[str],
             - The second array represents the reflection coefficients.
     """
 
+    # -------------------------------------------------------------------------
+    # Input Validation
+    # -------------------------------------------------------------------------
+
+    # --- material_list ---
+    if not isinstance(material_list, list):
+        raise TypeError("material_list must be a list of material names")
+    if not material_list:
+        raise ValueError("material_list cannot be empty")
+    if not all(isinstance(m, str) for m in material_list):
+        raise TypeError("all elements of material_list must be strings")
+
+    # --- thickness_list ---
+    if not isinstance(thickness_list, jnp.ndarray):
+        raise TypeError("thickness_list must be a jax array")
+    if thickness_list.shape[0] != (len(material_list)-2):
+        raise ValueError("thickness_list length must match material_list length minus two")
+    if np.any(thickness_list <= 0):
+        raise ValueError("all thickness values must be positive and nonzero")
+
+    # --- wavelength_arr ---
+    if not isinstance(wavelength_arr, jnp.ndarray):
+        raise TypeError("wavelength_arr must be a jax array")
+    if np.any(wavelength_arr <= 0):
+        raise ValueError("wavelength values must be positive")
+
+    # --- angle_of_incidences ---
+    if not isinstance(angle_of_incidences, jnp.ndarray):
+        raise TypeError("angle_of_incidences must be a jax array")
+    if np.any((angle_of_incidences < 0) | (angle_of_incidences > (jnp.pi/2))):
+        raise ValueError("angles of incidence must be between 0 degree and 90 degree")
+
+    # --- coherency_list ---
+    if coherency_list is not None:
+        if not isinstance(coherency_list, jnp.ndarray):
+            raise TypeError("coherency_list must be a jnp.ndarray")
+        if len(coherency_list) != len(thickness_list):
+            raise ValueError("coherency list must have the same length as thickness list")
+        if not all(x in [0, 1] for x in coherency_list.tolist()):
+            raise ValueError("coherency_list can only contain 0 and 1")
+
+    # --- polarization ---
+    if polarization not in ('s', 'p'):
+        raise ValueError("polarization must be s or p")
+
     # Convert the material list into a set and a material distribution array
     # The material set contains unique materials, and the distribution describes how materials are layered.
     material_set, material_distribution = material_distribution_to_set(material_list)
@@ -667,9 +713,6 @@ def tmm(material_list: List[str],
     elif polarization == 'p':
         # For p-polarization, set the boolean flag to `True`.
         polarization = jnp.array([True], dtype=bool)
-    else:
-        # Raise an error if the polarization input is invalid.
-        raise TypeError("The polarization can be 's' or 'p', not other parts. Correct it")
 
     if coherency_list == None:
         # If the multilayer structure is fully coherent, use the vectorized coherent TMM function.
