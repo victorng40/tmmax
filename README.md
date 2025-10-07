@@ -1,5 +1,11 @@
 # **TMMax: High-performance modeling of multilayer thin-film structures using transfer matrix method with JAX**
 
+[![PyPI Version](https://img.shields.io/pypi/v/tmmax.svg)](https://pypi.org/project/tmmax/)
+[![License](https://img.shields.io/github/license/bahremsd/tmmax.svg)](https://github.com/serhatdann/tmmax/blob/main/LICENSE)
+[![Build Status](https://github.com/serhatdann/tmmax/actions/workflows/tests.yml/badge.svg)](https://github.com/serhatdann/tmmax/actions)
+[![Documentation Status](https://readthedocs.org/projects/tmmax/badge/?version=latest)](https://tmmax.readthedocs.io/en/latest/index.html)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.xxxxxxx.svg)](https://doi.org/10.48550/arXiv.2507.11341)
+
 <div align="center">
   <a href="https://pypi.org/project/tmmax/">
     <img src="https://github.com/bahremsd/tmmax/blob/master/docs/source/_static/logo_tmmax.png" alt="tmmax">
@@ -73,7 +79,7 @@ R_p, T_p = tmm(material_list = material_list,
 ```
 
 <div align="center">
-  <img src="ttps://github.com/bahremsd/tmmax/blob/master/docs/images/quickstart_example.png" alt="usage_example">
+  <img src="https://github.com/bahremsd/tmmax/blob/master/docs/source/_static/quickstart_example.png" alt="usage_example">
 </div>
 
 For cases where an incoherent layer is introduced within the stack, the simulation should include averaging effects of "thick" layers. In tmmax, incoherent layers are denoted by `1`, while coherent layers remain as `0`. The following example demonstrates the configuration of the same stack with incoherent layers:
@@ -118,7 +124,7 @@ For example, to visualize the n and k data for SiO2, a material with widely acce
 
 
 <div align="center">
-  <img src="https://github.com/bahremsd/tmmax/blob/master/docs/images/SiO2_nk_plot.png" alt="database_example_sio2">
+  <img src="https://github.com/bahremsd/tmmax/blob/master/docs/source/_static/SiO2_nk_plot.png" alt="database_example_sio2">
 </div>
 
 The database is designed to be extensible, and we plan to include additional materials in future versions of tmmax. Contributions are welcome, and if you have a material you would like to add, please feel free to open an issue or submit a pull request. 

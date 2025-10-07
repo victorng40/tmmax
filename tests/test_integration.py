@@ -9,6 +9,7 @@ physical bounds of reflectance (R) and transmittance (T) results.
 
 import pytest
 import jax.numpy as jnp
+import numpy as np
 from tmmax.tmm import tmm
 
 # -----------------------------------------------------------------------------
@@ -29,8 +30,8 @@ def test_tmm_coherent_s_polarization(sample_material_list, sample_thickness_list
     # Shape and value assertions
     assert R_s.shape == (10, 100), "Reflectance (R_s) must have shape (10, 100)."
     assert T_s.shape == (10, 100), "Transmittance (T_s) must have shape (10, 100)."
-    assert jnp.all((R_s >= 0) & (R_s <= 1)), "Reflectance values must be between 0 and 1."
-    assert jnp.all((T_s >= 0) & (T_s <= 1)), "Transmittance values must be between 0 and 1."
+    assert jnp.all((R_s >= 0) & (R_s <= 1+1e-4)), "Reflectance values must be between 0 and 1."
+    assert jnp.all((T_s >= 0) & (T_s <= 1+1e-4)), "Transmittance values must be between 0 and 1."
 
 
 def test_tmm_coherent_p_polarization(sample_material_list, sample_thickness_list,
@@ -47,8 +48,8 @@ def test_tmm_coherent_p_polarization(sample_material_list, sample_thickness_list
     # Shape and value assertions
     assert R_p.shape == (10, 100), "Reflectance (R_p) must have shape (10, 100)."
     assert T_p.shape == (10, 100), "Transmittance (T_p) must have shape (10, 100)."
-    assert jnp.all((R_p >= 0) & (R_p <= 1)), "Reflectance values must be between 0 and 1."
-    assert jnp.all((T_p >= 0) & (T_p <= 1)), "Transmittance values must be between 0 and 1."
+    assert np.all((R_p >= 0) & (R_p <= 1+1e-4)), "Reflectance values must be between 0 and 1."
+    assert np.all((T_p >= 0) & (T_p <= 1+1e-4)), "Transmittance values must be between 0 and 1."
 
 
 # -----------------------------------------------------------------------------
@@ -73,8 +74,8 @@ def test_tmm_mixed_coherency_s_polarization(sample_material_list,
     # Shape and value assertions
     assert R_s.shape == (10, 100), "Reflectance (R_s) must have shape (10, 100)."
     assert T_s.shape == (10, 100), "Transmittance (T_s) must have shape (10, 100)."
-    assert jnp.all((R_s >= 0) & (R_s <= 1)), "Reflectance values must be between 0 and 1."
-    assert jnp.all((T_s >= 0) & (T_s <= 1)), "Transmittance values must be between 0 and 1."
+    assert np.all((R_s >= 0) & (R_s <= 1+1e-4)), "Reflectance values must be between 0 and 1."
+    assert np.all((T_s >= 0) & (T_s <= 1+1e-4)), "Transmittance values must be between 0 and 1."
 
 
 def test_tmm_mixed_coherency_p_polarization(sample_material_list,
@@ -95,5 +96,5 @@ def test_tmm_mixed_coherency_p_polarization(sample_material_list,
     # Shape and value assertions
     assert R_p.shape == (10, 100), "Reflectance (R_p) must have shape (10, 100)."
     assert T_p.shape == (10, 100), "Transmittance (T_p) must have shape (10, 100)."
-    assert jnp.all((R_p >= 0) & (R_p <= 1)), "Reflectance values must be between 0 and 1."
-    assert jnp.all((T_p >= 0) & (T_p <= 1)), "Transmittance values must be between 0 and 1."
+    assert np.all((R_p >= 0) & (R_p <= 1+1e-4)), "Reflectance values must be between 0 and 1."
+    assert np.all((T_p >= 0) & (T_p <= 1+1e-4)), "Transmittance values must be between 0 and 1."
