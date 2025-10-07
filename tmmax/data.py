@@ -547,7 +547,8 @@ def visualize_material_properties(material_name = '', logX = False, logY = False
         # Save the figure
         plt.savefig(full_save_path, dpi=300)
         print(f"Figure saved successfully at: {full_save_path}")
-    plt.show()
+    else:
+        plt.show()
 
 def common_wavelength_band(material_list: List[str]) -> Tuple[float, float]:
     """

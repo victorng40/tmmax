@@ -149,7 +149,7 @@ One of the primary factors influencing computational complexity in tmm simulatio
 
 ## Minimum Requirements and Installation
 
-- **Python**: ≥ 3.9  
+- **Python**: ≥ 3.10  
 - **Operating System**: Linux, macOS, or Windows  
 - **Dependencies**:
   - `jax>=0.5.0`
