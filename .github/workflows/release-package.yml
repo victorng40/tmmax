@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10", "3.11"]
+        python-version: ["3.10", "3.11"]
 
     steps:
     - uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
         python -m pip install build flake8 pytest
 
         # Install your package and dependencies from pyproject.toml
-        pip install .
+        python -m pip install .[test,docs,dev]
 
         # (Optional) If you use Poetry or Hatch instead of setuptools:
         # pip install poetry
@@ -41,4 +41,4 @@ jobs:
 
     - name: Test with pytest (excluding benchmark tests)
       run: |
-        pytest --ignore=tests/test_benchmark.py
+        pytest --ignore=tests/test_benchmark.py --cov=tmmax --cov-report=term-missing
