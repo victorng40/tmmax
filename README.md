@@ -3,6 +3,7 @@
 [![PyPI Version](https://img.shields.io/pypi/v/tmmax.svg)](https://pypi.org/project/tmmax/)
 [![License](https://img.shields.io/github/license/bahremsd/tmmax.svg)](https://github.com/serhatdann/tmmax/blob/main/LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/tmmax/badge/?version=latest)](https://tmmax.readthedocs.io/en/latest/index.html)
+[![DOI](https://img.shields.io/badge/DOI-10.48550%2FarXiv.2507.11341-b31b1b.svg)](https://doi.org/10.48550/arXiv.2507.11341)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.xxxxxxx.svg)](https://doi.org/10.48550/arXiv.2507.11341)
 
 <div align="center">
