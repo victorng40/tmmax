@@ -31,17 +31,17 @@ bibliography: paper.bib
 
 # Summary
 
-Optical multilayer thin-films are fundamental components that enable the precise control of reflectance, transmittance, and phase shift in the design of photonic systems. Rapid and accessible simulation of these structures holds critical importance for designing and analyzing complex coatings. While researchers commonly use the traditional transfer matrix method for designing these structures, its scalar approach to wavelength and angle of incidence causes redundant recalculations and inefficiencies in large-scale simulations. Furthermore, traditional method implementations do not support automatic differentiation, which limits their applicability in gradient-based inverse design approaches. Here, we present TMMax, a Python library that fully vectorizes and accelerates transfer matrix method using the high-performance machine learning library JAX. TMMax supports CPU, GPU, and TPU hardware, includes a publicly available material database. Our approach, demonstrated through benchmarking, allows us to model thin-film stacks with hundreds of layers within seconds. This illustrates that our method achieves a simulation speedup of x100s over a baseline NumPy implementation. Our method enables optical engineers and thin-film researchers in optics and photonics to efficiently design complex dielectric multilayer structures through rapid and scalable simulations.
+Optical multilayer thin-films are fundamental components that enable the precise control of reflectance, transmittance, and phase shift in the design of photonic systems. Rapid and accessible simulation of these structures holds critical importance for designing and analyzing complex coatings. While researchers commonly use the traditional transfer matrix method for designing these structures, its scalar approach to wavelength and angle of incidence causes redundant recalculations and inefficiencies in large-scale simulations. Furthermore, traditional method implementations do not support automatic differentiation, which limits their applicability in gradient-based inverse design approaches. Here, we present TMMax, a Python library that fully vectorizes and accelerates transfer matrix method using the high-performance machine learning library JAX. TMMax supports CPU, GPU, and TPU hardware, includes a publicly available material database. Our approach, demonstrated through benchmarking, allows us to model thin-film stacks with hundreds of layers within seconds. This illustrates that our method achieves a simulation speedup of x100s over a baseline NumPy implementation, enabling optical engineers and thin-film researchers in optics and photonics to efficiently design complex dielectric multilayer structures through rapid and scalable simulations.
 
 # Statement of need
 
 The Transfer Matrix Method (TMM) models multilayer optical thin films by applying Snell’s law for light propagation and Fresnel equations to compute interface transmittance and reflectance.
 
 $$
-\mathbf{M} = \mathbf{I}_0 \cdot  \prod_{i=1}^{N-2} \mathbf{M}_i \tag{1}
+\mathbf{M} = \prod_{i=0}^{N-2} \mathbf{M}_i \tag{1}
 $$
 
-In TMM, the optical behavior of a multilayer structure composed of dielectric materials is obtained by computing the system matrix $\mathbf{M}$, as shown in Equation (1). This matrix calculation, commonly referred to as the Abeles TMM [@refId0], results from the successive multiplication of the transfer matrices of each layer ($\mathbf{M}_i$) [@katsidis2002general]. 
+In TMM, the optical behavior of an N-layer multilayer structure composed of dielectric materials is obtained by computing the system matrix $\mathbf{M}$, as shown in Equation (1). This matrix calculation, commonly referred to as the Abeles TMM [@refId0], results from the successive multiplication of the transfer matrices of each layer ($\mathbf{M}_i$) [@katsidis2002general]. 
 
 \begin{figure*}[h]
 \centering\includegraphics[width=\textwidth]{figure1.pdf}
