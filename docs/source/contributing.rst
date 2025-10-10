@@ -26,8 +26,8 @@ Ways You Can Contribute
    .. code-block:: bash
 
       # 1. Clone the repository
-      git clone https://github.com/<your-username>/TMMax.git
-      cd TMMax
+      git clone https://github.com/bahremsd/tmmax.git
+      cd tmmax
 
       # 2. Create and activate a virtual environment (optional but recommended)
       python -m venv .venv
@@ -68,7 +68,7 @@ Run the test suite using one of the following commands:
    pytest --cov=tmmax tests/
 
    # Run only a specific test file or function
-   pytest tests/test_tmm.py::test_transfer_matrix
+   pytest tests/test_imports.py::test_import_visualize_material_properties
 
 Each command helps contributors verify that their changes maintain functionality and numerical consistency across different simulation modules.
 
