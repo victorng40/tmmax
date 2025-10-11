@@ -52,6 +52,8 @@ In traditional TMM implementations, the stack of layers in Figure 1a is simulate
 
 TMMax supports deep learning–based inverse design by keeping all computations on the GPU, avoiding costly CPU–GPU data transfers [@10.1117/1.OE.58.6.065103]. Whereas NumPy-based [@2020NumPy-Array] TMM packages that lack native gradients and require Autograd [@maclaurin2015autograd], TMMax natively computes gradients. Additionally, TMMax integrates a curated database of 30 extensively used dielectric materials, sourced from refractiveindex.info [@polyanskiy2024refractiveindex], thereby enabling optical engineers and thin-film researchers in optics and photonics to efficiently simulate complex multilayer structures through a scalable, JAX-accelerated implementation.
 
+\clearpage
+
 # Benchmarks
 
 Runtime in TMM scales naturally with the number of layers, as well as the lengths of the wavelength and incidence-angle arrays, due to the increased number of transfer matrix multiplications. To benchmark TMMax, we used tmm library [@byrnes2020multilayeropticalcalculations] as a reference.
