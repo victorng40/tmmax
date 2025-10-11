@@ -43,7 +43,7 @@ $$
 
 In TMM, the optical behavior of an N-layer multilayer structure composed of dielectric materials is obtained by computing the system matrix $\mathbf{M}$, as shown in Equation (1). This matrix calculation, commonly referred to as the Abeles TMM [@refId0], results from the successive multiplication of the transfer matrices of each layer ($\mathbf{M}_i$) [@katsidis2002general]. 
 
-\begin{figure*}[h]
+\begin{figure*}[ht]
 \centering\includegraphics[width=\textwidth]{figure1.pdf}
 \caption{Schematic of two strategies for calculating transmission, reflection, and absorption in multilayer thin-film simulations. The system (a) is modeled either by sequentially multiplying 2×2 transfer matrices for each wavelength and incidence angle (b) or by vectorizing these operations across both axes (c).}
 \end{figure*}
@@ -58,14 +58,14 @@ TMMax supports deep learning–based inverse design by keeping all computations 
 
 Runtime in TMM scales naturally with the number of layers, as well as the lengths of the wavelength and incidence-angle arrays, due to the increased number of transfer matrix multiplications. To benchmark TMMax, we used tmm library [@byrnes2020multilayeropticalcalculations] as a reference.
 
-\begin{figure*}[h]
+\begin{figure*}[ht]
 \centering\includegraphics[width=0.75\textwidth]{figure2.pdf}
 \caption{ Run time vs. layer count comparing tmm (orange) and TMMax (blue).}
 \end{figure*}
 
 To assess how layer count affects computational performance, we sampled 20 multilayer structures ranging from 2 to 400 layers, with each layer randomly assigned one of seven materials and thicknesses between 100–500 nm. Spectral and angular domains were fixed at 20 points each, spanning 500–1000 nm and 0–π/2 radians, respectively. Figure 2 shows that while tmm runtime grows rapidly, TMMax scales efficiently, remaining nearly constant (~1.0–1.2 s) for low-layer structures and achieving speedups from 18× (2 layers) to 700× (400 layers).
 
-\begin{figure*}[h]
+\begin{figure*}[ht]
 \centering\includegraphics[width=\textwidth]{figure3.pdf}
 \caption{The colormaps show the runtime performance of tmm and TMMax across varying simulation grid sizes, comparing 8- and 80-layer stacks in (a) and (b), respectively.}  
 \end{figure*}
@@ -74,6 +74,8 @@ We benchmarked the effects of wavelength and incident angle array sizes by sampl
 
 We used Python’s timeit module to benchmark each simulation 50 times, with all comparisons run on a single Intel Core i9 core without GPU or multicore use for fairness.
 
+\clearpage
+
 # Installation
 
 TMMax can be readily installed from the Python Package Index using `pip install tmmax`, which automatically handles all dependencies. For detailed installation instructions and platform compatibility, please refer to the [TMMax Documentation](https://tmmax.readthedocs.io/en/latest/index.html).
@@ -81,7 +83,5 @@ TMMax can be readily installed from the Python Package Index using `pip install 
 # Acknowledgements
 
 This work was supported by the Scientific and Technological Research Council of Türkiye (TUBITAK) under the 2209-A Research Project Support Programme for Undergraduate Students, 2022 First-Term Call.
-
-\clearpage
 
 # References
