@@ -16,7 +16,6 @@ import os
 import pytest
 import jax.numpy as jnp
 from tmmax.tmm import tmm
-from tmmax.data import visualize_material_properties
 
 
 
