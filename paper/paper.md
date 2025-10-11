@@ -80,6 +80,6 @@ TMMax can be readily installed from the Python Package Index using `pip install 
 
 This work was supported by the Scientific and Technological Research Council of Türkiye (TUBITAK) under the 2209-A Research Project Support Programme for Undergraduate Students, 2022 First-Term Call.
 
-<div style="page-break-after: always;"></div>
+\clearpage
 
 # References
