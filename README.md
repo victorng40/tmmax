@@ -4,7 +4,8 @@
 [![License](https://img.shields.io/github/license/bahremsd/tmmax.svg)](https://github.com/serhatdann/tmmax/blob/main/LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/tmmax/badge/?version=latest)](https://tmmax.readthedocs.io/en/latest/index.html)
 [![DOI](https://img.shields.io/badge/DOI-10.48550%2FarXiv.2507.11341-b31b1b.svg)](https://doi.org/10.48550/arXiv.2507.11341)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.xxxxxxx.svg)](https://doi.org/10.48550/arXiv.2507.11341)
+[![DOI](https://joss.theoj.org/papers/712c9ff83afb445ed24c166759c8093b/status.svg)](https://joss.theoj.org/papers/712c9ff83afb445ed24c166759c8093b)
+[![DOI](https://zenodo.org/badge/854440500.svg)](https://doi.org/10.5281/zenodo.17361546)
 
 <div align="center">
   <a href="https://pypi.org/project/tmmax/">
