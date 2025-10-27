@@ -60,24 +60,24 @@ TMMax supports deep learning–based inverse design by keeping all computations 
 
 # Benchmarks
 
-Runtime in TMM scales naturally with the number of layers, as well as the lengths of the wavelength and incidence-angle arrays, due to the increased number of transfer matrix multiplications. To benchmark TMMax, we used tmm library [@byrnes2020multilayeropticalcalculations] as a reference.
+Runtime in TMM scales naturally with the number of layers, as well as the lengths of the wavelength and incidence-angle arrays, due to the increased number of transfer matrix multiplications. To benchmark TMMax, we used `tmm` library [@byrnes2020multilayeropticalcalculations] as a reference.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.75\textwidth]{figure2.pdf}
-\caption{ Run time vs. layer count comparing tmm (orange) and TMMax (blue).}
+\caption{ Run time vs. layer count comparing `tmm` (orange) and TMMax (blue).}
 \end{figure}
 
-To assess how layer count affects computational performance, we sampled 20 multilayer structures ranging from 2 to 400 layers, with each layer randomly assigned one of seven materials and thicknesses between 100–500 nm. Spectral and angular domains were fixed at 20 points each, spanning 500–1000 nm and 0–π/2 radians, respectively. Figure 2 shows that while tmm runtime grows rapidly, TMMax scales efficiently, remaining nearly constant (~1.0–1.2 s) for low-layer structures and achieving speedups from 18× (2 layers) to 700× (400 layers).
+To assess how layer count affects computational performance, we sampled 20 multilayer structures ranging from 2 to 400 layers, with each layer randomly assigned one of seven materials and thicknesses between 100–500 nm. Spectral and angular domains were fixed at 20 points each, spanning 500–1000 nm and 0–π/2 radians, respectively. Figure 2 shows that while `tmm` runtime grows rapidly, TMMax scales efficiently, remaining nearly constant (~1.0–1.2 s) for low-layer structures and achieving speedups from 18× (2 layers) to 700× (400 layers).
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figure3.pdf}
-\caption{The colormaps show the runtime performance of tmm and TMMax across varying simulation grid sizes, comparing 8- and 80-layer stacks in (a) and (b), respectively.}  
+\caption{The colormaps show the runtime performance of `tmm` and TMMax across varying simulation grid sizes, comparing 8- and 80-layer stacks in (a) and (b), respectively.}  
 \end{figure}
 \vspace{1.0em}
 
-We benchmarked the effects of wavelength and incident angle array sizes by sampling 20 values from 2 to 100, generating simulation grids from 2×2 to 100×100 for an 8-layer structure (Figure 3a). tmm runtime rises sharply with grid size, reaching ~138 s for 100×100, whereas TMMax remains below 3 s. For the smallest 2×2 grid, tmm is faster (~0.1 s vs. ~0.6 s) due to NumPy’s low overhead, while JAX incurs higher initialization costs. As layers increase to 80 (Figure 3b), tmm exceeds 760 s, but TMMax stays under 8 s, demonstrating superior efficiency and stability against both problem size and structural complexity.
+We benchmarked the effects of wavelength and incident angle array sizes by sampling 20 values from 2 to 100, generating simulation grids from 2×2 to 100×100 for an 8-layer structure (Figure 3a). `tmm` runtime rises sharply with grid size, reaching ~138 s for 100×100, whereas TMMax remains below 3 s. For the smallest 2×2 grid, `tmm` is faster (~0.1 s vs. ~0.6 s) due to NumPy’s low overhead, while JAX incurs higher initialization costs. As layers increase to 80 (Figure 3b), `tmm` exceeds 760 s, but TMMax stays under 8 s, demonstrating superior efficiency and stability against both problem size and structural complexity.
 
 We used Python’s timeit module to benchmark each simulation 50 times, with all comparisons run on a single Intel Core i9 core without GPU or multicore use for fairness.
 
