@@ -357,14 +357,14 @@ This repository sometimes utilizes approaches from Steven Byrnes' [`tmm`](https:
 If you find the `tmmax` library beneficial in your work, we kindly ask that you consider citing us.
 
 ```bibtex
-@misc{danis2025tmmax,
-      title={TMMax: High-performance modeling of multilayer thin-film structures using transfer matrix method with JAX}, 
-      author={Bahrem Serhat Danis and Esra Zayim},
-      year={2025},
-      eprint={2507.11341},
-      archivePrefix={arXiv},
-      primaryClass={physics.comp-ph},
-      url={https://arxiv.org/abs/2507.11341}, 
+@article{tmmax, 
+  doi = {10.21105/joss.09088}, 
+  url = {https://doi.org/10.21105/joss.09088}, 
+  year = {2025}, publisher = {The Open Journal}, 
+  volume = {10}, number = {114}, pages = {9088}, 
+  author = {Danis, Bahrem Serhat and Zayim, Esra}, 
+  title = {TMMax: High-performance modeling of multilayer thin-film structures using transfer matrix method with JAX}, 
+  journal = {Journal of Open Source Software} 
 }
 ```
 
