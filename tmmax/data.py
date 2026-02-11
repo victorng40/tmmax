@@ -490,7 +490,7 @@ def add_material_to_nk_database(wavelength_arr, refractive_index_arr, extinction
     # Save the file with a header
     # Convert the jax.numpy array to a numpy array for file saving and write to CSV
     np.savetxt(path_csv, np.asarray(data), delimiter=',', header='wavelength_in_um,n,k', comments='')
-    np.save(path_npy, np.asarray(data))
+    np.save(path_npy, np.asarray(data).T)
 
     # Provide feedback on file creation
     # Inform the user whether the file was created or recreated successfully

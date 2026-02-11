@@ -115,11 +115,11 @@ def coh_matmul(carry: ArrayLike, phase_r_t: ArrayLike):
     # Assemble the full 2x2 transfer matrix M_i
     # M_i = (1/t) * [[exp(-i * phase), r * exp(-i * phase)],
     #                [r * exp(i * phase), exp(i * phase)]]
-    transfer_matrix = jnp.multiply(jnp.true_divide(1, phase_r_t.at[2].get()), jnp.array([[transfer_matrix_00, transfer_matrix_01],
-                                                                                         [transfer_matrix_10, transfer_matrix_11]]))
+    transfer_matrix = jnp.squeeze(jnp.multiply(jnp.true_divide(1, phase_r_t.at[2].get()), jnp.array([[transfer_matrix_00, transfer_matrix_01],
+                                                                                         [transfer_matrix_10, transfer_matrix_11]])))
     
     # Multiply the accumulated matrix (carry) with the current transfer matrix (M_i)
-    result = jnp.squeeze(jnp.matmul(carry, transfer_matrix))
+    result = jnp.dot(carry, transfer_matrix)
 
     # Return the updated matrix and a placeholder (same matrix) for jax.lax.scan compatibility
     return result, result

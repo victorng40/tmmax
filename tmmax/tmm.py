@@ -298,7 +298,7 @@ def tmm_incoh_single_wl_angle_point(data: ArrayLike,
                                                                t_backward = backward_magnitudes.at[0,1].get())
 
     # Multiply the first layer matrix with the transfer matrix
-    tr_matrix = jnp.matmul(first_layer_matrix, tr_matrix)
+    tr_matrix = jnp.dot(first_layer_matrix, tr_matrix)
 
     # Compute reflectance (R) and transmittance (T) from the transfer matrix elements
     R = jnp.true_divide(tr_matrix.at[1,0].get(), tr_matrix.at[0,0].get())
