@@ -100,26 +100,17 @@ def coh_matmul(carry: ArrayLike, phase_r_t: ArrayLike):
         - A placeholder for `jax.lax.scan`, which requires a tuple to function correctly.
     """
 
-    # Compute the (0,0) element of the transfer matrix: exp(-i * phase) / t
-    transfer_matrix_00 = jnp.exp(jnp.multiply(jnp.array([-1j], dtype = jnp.complex64), phase_r_t.at[0].get()))
+    phase = phase_r_t[0]
+    r = phase_r_t[1]
+    t = phase_r_t[2]
 
-    # Compute the (1,1) element of the transfer matrix: exp(i * phase) / t
-    transfer_matrix_11 = jnp.exp(jnp.multiply(jnp.array([1j], dtype = jnp.complex64), phase_r_t.at[0].get()))
+    exp_neg = jnp.exp(-1j * phase)
+    exp_pos = jnp.exp(1j * phase)
 
-    # Compute the (0,1) element of the transfer matrix: r * exp(-i * phase) / t
-    transfer_matrix_01 = jnp.multiply(phase_r_t.at[1].get(), transfer_matrix_00)
+    transfer_matrix = (1 / t) * jnp.array([[exp_neg,        r * exp_neg],
+                                            [r * exp_pos,    exp_pos]])
 
-    # Compute the (1,0) element of the transfer matrix: r * exp(i * phase) / t
-    transfer_matrix_10 = jnp.multiply(phase_r_t.at[1].get(), transfer_matrix_11)
-
-    # Assemble the full 2x2 transfer matrix M_i
-    # M_i = (1/t) * [[exp(-i * phase), r * exp(-i * phase)],
-    #                [r * exp(i * phase), exp(i * phase)]]
-    transfer_matrix = jnp.squeeze(jnp.multiply(jnp.true_divide(1, phase_r_t.at[2].get()), jnp.array([[transfer_matrix_00, transfer_matrix_01],
-                                                                                         [transfer_matrix_10, transfer_matrix_11]])))
-    
-    # Multiply the accumulated matrix (carry) with the current transfer matrix (M_i)
-    result = jnp.dot(carry, transfer_matrix)
+    result = jnp.matmul(carry, transfer_matrix)
 
     # Return the updated matrix and a placeholder (same matrix) for jax.lax.scan compatibility
     return result, result
